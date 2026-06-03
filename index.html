@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Dimitrios Christos Asimopoulos - AI Engineer and Electrical Engineer portfolio."
+    />
+    <title>Dimitrios Christos Asimopoulos | AI Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Home">DCA</a>
+      <nav class="nav" id="nav" aria-label="Primary navigation"></nav>
+      <div class="language-switcher" aria-label="Language switcher">
+        <button class="lang-button active" type="button" data-lang="en">EN</button>
+        <button class="lang-button" type="button" data-lang="el">EL</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" id="hero-label"></p>
+          <h1>Dimitrios Christos Asimopoulos</h1>
+          <p class="headline" id="hero-text"></p>
+          <div class="hero-actions">
+            <a class="button primary" id="contact-action" href="#contact"></a>
+            <a class="button secondary" id="cv-action" href="#"></a>
+          </div>
+          <div class="impact-strip" id="impact-strip" aria-label="Career highlights"></div>
+        </div>
+
+        <aside class="profile-panel" aria-label="Profile summary">
+          <img
+            class="profile-photo"
+            src="assets/dimitrios-asimopoulos-photo.jpg"
+            alt="Dimitrios Christos Asimopoulos"
+          />
+          <div class="profile-card">
+            <p class="profile-name">Dimitrios Christos Asimopoulos</p>
+            <dl id="profile-list"></dl>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section intro-section" id="profile">
+        <div class="section-kicker">01</div>
+        <div class="section-heading">
+          <p class="section-label" id="profile-label"></p>
+          <h2 id="profile-title"></h2>
+        </div>
+        <div class="section-body">
+          <p id="profile-text"></p>
+        </div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="section-kicker">02</div>
+        <div class="section-heading">
+          <p class="section-label" id="experience-label"></p>
+          <h2 id="experience-title"></h2>
+        </div>
+        <div id="experience-content"></div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="section-kicker">03</div>
+        <div class="section-heading">
+          <p class="section-label" id="education-label"></p>
+          <h2 id="education-title"></h2>
+        </div>
+        <div class="stack-list" id="education-content"></div>
+      </section>
+
+      <section class="section" id="certifications">
+        <div class="section-kicker">04</div>
+        <div class="section-heading">
+          <p class="section-label" id="certifications-label"></p>
+          <h2 id="certifications-title"></h2>
+        </div>
+        <div class="stack-list compact" id="certifications-content"></div>
+      </section>
+
+      <section class="section" id="languages">
+        <div class="section-kicker">05</div>
+        <div class="section-heading">
+          <p class="section-label" id="languages-label"></p>
+          <h2 id="languages-title"></h2>
+        </div>
+        <div id="languages-content"></div>
+      </section>
+
+      <section class="section" id="digital-skills">
+        <div class="section-kicker">06</div>
+        <div class="section-heading">
+          <p class="section-label" id="skills-label"></p>
+          <h2 id="skills-title"></h2>
+        </div>
+        <div class="skill-groups" id="skills-content"></div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-kicker">07</div>
+        <div class="section-heading">
+          <p class="section-label" id="projects-label"></p>
+          <h2 id="projects-title"></h2>
+          <p class="section-intro" id="projects-intro"></p>
+        </div>
+        <div class="project-grid" id="projects-content"></div>
+      </section>
+
+      <section class="section" id="publications">
+        <div class="section-kicker">08</div>
+        <div class="section-heading">
+          <p class="section-label" id="publications-label"></p>
+          <h2 id="publications-title"></h2>
+          <p class="section-intro" id="publications-intro"></p>
+        </div>
+        <ol class="publication-list" id="publications-content"></ol>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <p class="section-label" id="contact-label"></p>
+        <h2 id="contact-title"></h2>
+        <p id="contact-text"></p>
+        <div class="contact-links" id="contact-links"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p id="footer-text"></p>
+    </footer>
+
+    <script>
+      const links = {
+        email: "mailto:dasimopoulos@metamind.gr",
+        linkedIn: "https://www.linkedin.com/in/dimitris-christos-asimopoulos-2a627a262/",
+        scholar: "https://scholar.google.com/citations?user=HO6cbW8AAAAJ&hl=el",
+        orcid: "https://orcid.org/0009-0009-6439-0857",
+        cvEn: "assets/dimitrios-asimopoulos-cv-en.docx",
+        cvEl: "assets/dimitrios-asimopoulos-cv-el.docx"
+      };
+
+      const sharedPublications = [
+        "D. C. Asimopoulos, P. Radoglou-Grammatikis, G. Th. Papadopoulos, P. Sarigiannidis, “Beyond Vulnerabilities: A Comprehensive Survey of Adversarial Attacks Across Domains”, Computer Science Review (Elsevier), 2026.",
+        "D. C. Asimopoulos, P. Radoglou-Grammatikis, P. E. Fouliras, K. Panitsidis, G. Efstathopoulos, T. Lagkas, V. Argyriou, I. Kotsiuba, P. Sarigiannidis, “Surrogate-Guided Adversarial Attacks: Enabling White-Box Methods in Black-Box Scenarios”, 2025 IEEE International Conference on Cyber Security and Resilience (CSR), pp. 950-956, August 2025.",
+        "D. C. Asimopoulos, P. Radoglou-Grammatikis, T. Lagkas, V. Argyriou, I. D. Moscholios, J. Cani, G. Th. Papadopoulos, E. K. Markakis, P. Sarigiannidis, “AAG: Adversarial Attack Generator for evaluating the robustness of Machine Learning Models against Adversarial Attacks”, 2024 IEEE International Conference on Big Data (BigData), pp. 2682-2689, December 2024.",
+        "C. Klitis, I. Makris, P. S. Bouzinis, D. C. Asimopoulos, W. Mallouli, K. Kioskli, E. Seralidou, C. Douligeris, L. Christofi, “NERO: Advanced Cybersecurity Awareness Ecosystem for SMEs”, Proceedings of the 19th International Conference on Availability, Reliability and Security (ARES ’24), August 2024.",
+        "C. Dalamagkas, D. C. Asimopoulos, P. Radoglou-Grammatikis, N. Maropoulos, T. Lagkas, V. Argyriou, G. Sargsyan, P. Sarigiannidis, “AI4COLLAB: An AI-based Threat Information Sharing Platform”, 2024 IEEE International Conference on Cyber Security and Resilience (CSR), pp. 783-788, September 2024.",
+        "D. C. Asimopoulos, I. Siniosoglou, V. Argyriou, T. Karamitsou, E. Fountoukidis, S. K. Goudos, I. D. Moscholios, K. E. Psannis, P. Sarigiannidis, “Benchmarking Advanced Text Anonymisation Methods: A Comparative Study on Novel and Traditional Approaches”, 2024 13th International Conference on Modern Circuits and Systems Technologies (MOCAST), pp. 1-6, June 2024.",
+        "D. Asimopoulos, I. Siniosoglou, V. Argyriou, S. K. Goudos, K. E. Psannis, N. Karditsioti, T. Saoulidis, P. Sarigiannidis, “Evaluating the Efficacy of AI Techniques in Textual Anonymization: A Comparative Study”, arXiv preprint arXiv:2405.06709, May 2024.",
+        "D. C. Asimopoulos, P. Radoglou-Grammatikis, I. Makris, V. Mladenov, K. E. Psannis, S. Goudos, P. Sarigiannidis, “Breaching the Defense: Investigating FGSM and CTGAN Adversarial Attacks on IEC 60870-5-104 AI-enabled Intrusion Detection Systems”, Proceedings of the 18th International Conference on Availability, Reliability and Security (ARES ’23), August 2023.",
+        "I. Siniosoglou, D. Asimopoulos et al., “Enhancing Text Anonymisation: A Study on CRF, LSTM, and ELMo for Advanced Entity Recognition”, 2024 Panhellenic Conference on Electronics & Telecommunications (PACET), Thessaloniki, Greece, 2024, pp. 1-6, doi: 10.1109/PACET60398.2024.10497084.",
+        "D. Asimopoulos, M. Papatsimouli, H. Michailidis, P. Sarigiannidis, G. Fragulis, “Simplified Face Image Generation and aging with Conditional Generative Adversarial Networks (GAN) and IoT applications”, 5th ETLTC International Conference on Information & Communications Technology, University of Aizu, Japan, January 2023.",
+        "D. Asimopoulos, M. Nitsiou, L. Lazaridis, G. Fragulis, “Generative Adversarial Networks: a systematic review and applications”, 4th ETLTC International Conference on Information & Communications Technology, Aizuwakamatsu, Fukushima, Japan, January 2022."
+      ];
+
+      const content = {
+        en: {
+          pageTitle: "Dimitrios Christos Asimopoulos | AI Engineer",
+          nav: [
+            ["experience", "Work Experience"],
+            ["education", "Education"],
+            ["certifications", "Certifications"],
+            ["languages", "Languages"],
+            ["digital-skills", "Digital Skills"],
+            ["projects", "Projects"],
+            ["publications", "Publications"],
+            ["contact", "Contact"]
+          ],
+          heroLabel: "AI Researcher / Electrical Engineer",
+          heroText: "Ph.D. candidate and AI researcher working on AI in IoT systems, cybersecurity, privacy, ethical challenges and solutions.",
+          contactAction: "Contact",
+          cvAction: "Download CV",
+          cvHref: links.cvEn,
+          impacts: [
+            ["2022", "R&D since"],
+            ["12", "EU research projects"],
+            ["11", "peer-reviewed publications"]
+          ],
+          profileLabel: "Profile",
+          profileTitle: "Professional summary",
+          profileText: "Dimitris Asimopoulos received his BSc and Integrated Master's degrees in Electrical and Computer Engineering from the University of Western Macedonia (UOWM) (September 2016 - June 2022). He is currently a Ph.D. candidate, conducting research in the field of “AI in IoT systems: Security, Privacy, Ethical Challenges & Solutions,” further expanding his expertise in cutting-edge AI trends. Dimitris's interests encompass Machine Learning techniques, Artificial Intelligence, and Generative Adversarial Networks, applied in various domains. Presently, he serves as an AI Researcher and Electrical Engineer at MetaMind Innovations in Thessaloniki, where he actively contributes to the development and research of European Horizon projects. His work primarily focuses on big data processing and cybersecurity, including the prevention, detection, and response to cyberattacks.",
+          profileFacts: [
+            ["Role", "AI Researcher / Electrical Engineer"],
+            ["Location", "Thessaloniki, Greece"],
+            ["Email", "dasimopoulos@metamind.gr", links.email],
+            ["LinkedIn", "Profile", links.linkedIn],
+            ["Google Scholar", "Citations", links.scholar],
+            ["ORCID", "0009-0009-6439-0857", links.orcid]
+          ],
+          sections: {
+            experience: ["Work Experience", "Professional experience"],
+            education: ["Education and Training", "Academic background"],
+            certifications: ["Certifications", "Additional training certifications"],
+            languages: ["Language Skills", "Languages"],
+            skills: ["Digital Skills", "Technical toolkit"],
+            projects: ["Projects", "EU-funded research projects"],
+            publications: ["Publications", "Selected peer-reviewed publications"],
+            contact: ["Contact", "Let’s connect"]
+          },
+          experience: {
+            date: "08/2022 - Current",
+            location: "Greece",
+            title: "AI Engineer / Electrical Engineer",
+            company: "MetaMind Innovations P.C.",
+            bullets: [
+              "Research and development across multiple Horizon Europe projects, with a primary focus on Artificial Intelligence, Machine Learning and big-data processing applied to cybersecurity, critical infrastructure protection and the energy sector.",
+              "Design, implementation and evaluation of AI-enabled Intrusion Detection and Prevention Systems (IDPS), with emphasis on adversarial robustness, anomaly detection and threat mitigation for industrial control systems and the smart grid.",
+              "Development of Generative Adversarial Networks (GANs) and other deep-learning models for synthetic data generation, data augmentation, text anonymisation and adversarial-attack simulation.",
+              "Active contribution to technical work-packages of EU-funded research projects, including requirements analysis, software development, integration, validation, demonstration activities and deliverable authoring according to EC specifications.",
+              "Co-author of peer-reviewed publications in international journals and conferences, including IEEE, ACM, Elsevier and Springer venues."
+            ]
+          },
+          education: [
+            {
+              date: "09/2016 - 06/2022",
+              location: "Greece",
+              title: "Electrical and Computer Engineering",
+              org: "University of Western Macedonia (UOWM), Kozani",
+              body: "Department of Electrical and Computer Engineering, Faculty of Engineering. Specialisation: Computers and Electronics. Diploma thesis: “Generative Neural Networks and Applications”."
+            },
+            {
+              date: "09/2016 - 06/2022",
+              location: "Greece",
+              title: "Integrated Master Electrical and Computer Engineer",
+              org: "University of Western Macedonia (UOWM), Kozani",
+              body: "Core courses: Machine Learning, Fuzzy Systems, Artificial Intelligence, Biomedical Engineering, Robotics, Design and Analysis of Algorithms, Computer Architecture, Parallel and Distributed Systems and Advanced Topics in Digital Design."
+            }
+          ],
+          certifications: [
+            ["Build a Modern Computer from First Principles: From Nand to Tetris", "Coursera / University of Jerusalem, October 2021"],
+            ["NDG Linux Unhatched", "Cisco Networking Academy, February 2022"],
+            ["NDG Linux Essentials", "Cisco Networking Academy, February 2022"],
+            ["International Business Strategy", "International team project jointly delivered by the University of Western Macedonia and Karlsruhe University of Applied Sciences, funded by DAAD, December 2020"]
+          ],
+          languages: {
+            motherTongue: "Mother tongue: Greek",
+            rows: [
+              ["English", "B2", "B2", "B2", "B2", "B2"],
+              ["German", "A1", "A1", "A1", "A1", "A1"]
+            ],
+            headers: ["Language", "Listening", "Reading", "Spoken production", "Spoken interaction", "Writing"]
+          },
+          skillGroups: [
+            ["Programming languages", ["Python", "C", "C++", "Java", "JavaScript", "MATLAB", "SQL", "Bash"]],
+            ["AI / ML frameworks and libraries", ["PyTorch", "TensorFlow", "Keras", "scikit-learn", "Hugging Face Transformers", "NumPy", "Pandas", "OpenCV"]],
+            ["Specialisation areas", ["GANs", "Deep Learning", "Adversarial Machine Learning", "Intrusion Detection / Prevention", "Natural Language Processing", "Big Data Analytics"]],
+            ["Tools and platforms", ["Git", "GitHub", "GitLab", "Docker", "Linux / Unix", "Jupyter", "MLflow", "MISP", "OpenCTI"]],
+            ["Productivity", ["MS Office", "Google Workspace", "LaTeX", "Overleaf", "Atlassian Jira", "Confluence"]]
+          ],
+          projectsIntro: "Horizon 2020 and Horizon Europe research projects through MetaMind Innovations P.C.",
+          projects: [
+            ["ELECTRON", "08/2022 - 02/2024", "rEsilient and seLf-healed EleCTRical pOwer Nanogrid: AI-enabled cybersecurity, anomaly detection and self-healing for the smart electrical grid."],
+            ["AI4CYBER", "09/2022 - 09/2025", "Trustworthy Artificial Intelligence for Cybersecurity Reinforcement and System Resilience."],
+            ["TALON", "10/2022 - 09/2025", "Autonomous and Self-organized Artificial Intelligent Orchestrator for a Greener Industry 4.0."],
+            ["DYNABIC", "03/2023 - 11/2025", "Dynamic business continuity of critical infrastructures on top of adaptive multi-level cybersecurity."],
+            ["NANCY", "01/2023 - 12/2025", "AI-driven blockchain-based Open RAN architecture for trusted, secure and intelligent Beyond-5G networks."],
+            ["SINNOGENES", "01/2023 - 04/2026", "Storage INNOvations for GreEN Energy Systems."],
+            ["REALM", "05/2023 - 04/2026", "Real-World data enabled assessment for healthcare regulatory decision-making."],
+            ["NERO", "12/2023 - 03/2026", "Advanced Cybersecurity Awareness Ecosystem for SMEs."],
+            ["D-HYDROFLEX", "01/2024 - 04/2026", "Digital solutions for hydroelectric plants."],
+            ["RAIDO", "02/2025 - 04/2026", "Reliable AI and Data Optimization."],
+            ["EVOSST", "03/2026 - 04/2026", "Evaluation and Valorization of Social Services for a Sustainable Transition."],
+            ["HIVE", "03/2026 - 04/2026", "Horizon Europe research project contribution."]
+          ],
+          publicationsIntro: "Full list available on Google Scholar.",
+          publications: sharedPublications,
+          contactText: "Available for research collaborations, AI engineering opportunities and technical discussions around cybersecurity, adversarial machine learning and critical infrastructure protection.",
+          contactLinks: [
+            ["Email", "dasimopoulos@metamind.gr", links.email],
+            ["LinkedIn", "LinkedIn", links.linkedIn],
+            ["Google Scholar", "Google Scholar", links.scholar],
+            ["ORCID", "ORCID", links.orcid]
+          ],
+          footer: "© {year} Dimitrios Christos Asimopoulos. All rights reserved."
+        },
+        el: {
+          pageTitle: "Δημήτριος Χρήστος Ασημόπουλος | Μηχανικός Τεχνητής Νοημοσύνης",
+          nav: [
+            ["experience", "Επαγγελματική Εμπειρία"],
+            ["education", "Εκπαίδευση"],
+            ["certifications", "Πιστοποιήσεις"],
+            ["languages", "Γλώσσες"],
+            ["digital-skills", "Ψηφιακές Δεξιότητες"],
+            ["projects", "Έργα"],
+            ["publications", "Δημοσιεύσεις"],
+            ["contact", "Επικοινωνία"]
+          ],
+          heroLabel: "Ερευνητής Τεχνητής Νοημοσύνης / Ηλεκτρολόγος Μηχανικός",
+          heroText: "Υποψήφιος διδάκτορας και ερευνητής Τεχνητής Νοημοσύνης με αντικείμενο την AI σε συστήματα IoT, την ασφάλεια, την ιδιωτικότητα, τις ηθικές προκλήσεις και τις αντίστοιχες λύσεις.",
+          contactAction: "Επικοινωνία",
+          cvAction: "Λήψη βιογραφικού",
+          cvHref: links.cvEl,
+          impacts: [
+            ["2022", "Έρευνα και ανάπτυξη από"],
+            ["12", "ευρωπαϊκά ερευνητικά έργα"],
+            ["11", "δημοσιεύσεις με κρίση"]
+          ],
+          profileLabel: "Προφίλ",
+          profileTitle: "Επαγγελματική περίληψη",
+          profileText: "Ο Δημήτρης Ασημόπουλος έλαβε το πτυχίο και το ολοκληρωμένο μεταπτυχιακό δίπλωμα από το Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών του Πανεπιστημίου Δυτικής Μακεδονίας (ΠΔΜ) (Σεπτέμβριος 2016 - Ιούνιος 2022). Αυτή τη στιγμή είναι υποψήφιος διδάκτορας, πραγματοποιώντας έρευνα στο πεδίο της «Τεχνητής Νοημοσύνης σε συστήματα IoT: Ασφάλεια, Ιδιωτικότητα, Ηθικές Προκλήσεις και Λύσεις», επεκτείνοντας περαιτέρω την εξειδίκευσή του στις τελευταίες τάσεις της Τεχνητής Νοημοσύνης. Τα ενδιαφέροντα του Δημήτρη περιλαμβάνουν τις τεχνικές Μηχανικής Μάθησης, την Τεχνητή Νοημοσύνη και τα Γενετικά Αντιπαραθετικά Δίκτυα, εφαρμοσμένα σε διάφορους τομείς. Αυτή τη στιγμή εργάζεται ως Ηλεκτρολόγος Μηχανικός και ερευνητής Τεχνητής Νοημοσύνης στη MetaMind Innovations στη Θεσσαλονίκη, όπου συμβάλλει ενεργά στην ανάπτυξη και στην έρευνα στο πλαίσιο των ευρωπαϊκών έργων Horizon. Οι αρμοδιότητές του επικεντρώνονται κυρίως στην επεξεργασία μεγάλων δεδομένων και την κυβερνοασφάλεια, συμπεριλαμβανομένης της πρόληψης, ανίχνευσης και απόκρισης σε κυβερνοεπιθέσεις.",
+          profileFacts: [
+            ["Ρόλος", "Ερευνητής Τεχνητής Νοημοσύνης / Ηλεκτρολόγος Μηχανικός"],
+            ["Τοποθεσία", "Θεσσαλονίκη, Ελλάδα"],
+            ["Email", "dasimopoulos@metamind.gr", links.email],
+            ["LinkedIn", "Προφίλ", links.linkedIn],
+            ["Google Scholar", "Δημοσιεύσεις", links.scholar],
+            ["ORCID", "0009-0009-6439-0857", links.orcid]
+          ],
+          sections: {
+            experience: ["Επαγγελματική Εμπειρία", "Επαγγελματική πορεία"],
+            education: ["Εκπαίδευση και Κατάρτιση", "Ακαδημαϊκό υπόβαθρο"],
+            certifications: ["Πιστοποιήσεις", "Πρόσθετες πιστοποιήσεις κατάρτισης"],
+            languages: ["Γλωσσικές Δεξιότητες", "Γλώσσες"],
+            skills: ["Ψηφιακές Δεξιότητες", "Τεχνικό υπόβαθρο"],
+            projects: ["Έργα", "Ευρωπαϊκά ερευνητικά έργα"],
+            publications: ["Δημοσιεύσεις", "Επιλεγμένες δημοσιεύσεις με κρίση"],
+            contact: ["Επικοινωνία", "Ας συνδεθούμε"]
+          },
+          experience: {
+            date: "08/2022 - Σήμερα",
+            location: "Ελλάδα",
+            title: "Μηχανικός Τεχνητής Νοημοσύνης / Ηλεκτρολόγος Μηχανικός",
+            company: "MetaMind Innovations P.C.",
+            bullets: [
+              "Έρευνα και ανάπτυξη σε πολλαπλά Ευρωπαϊκά Προγράμματα Horizon, με κύρια εστίαση στην Τεχνητή Νοημοσύνη, τη Μηχανική Μάθηση και την επεξεργασία μεγάλων δεδομένων με εφαρμογή στην κυβερνοασφάλεια, την προστασία κρίσιμων υποδομών και τον ενεργειακό τομέα.",
+              "Σχεδίαση, υλοποίηση και αξιολόγηση Συστημάτων Ανίχνευσης και Πρόληψης Εισβολών (IDPS) με χρήση Τεχνητής Νοημοσύνης, με έμφαση στην ανθεκτικότητα έναντι ανταγωνιστικών επιθέσεων, στην ανίχνευση ανωμαλιών και στη μετρίαση απειλών για βιομηχανικά συστήματα ελέγχου και το έξυπνο ηλεκτρικό δίκτυο.",
+              "Ανάπτυξη Παραγωγικών Ανταγωνιστικών Δικτύων (GANs) και άλλων μοντέλων βαθιάς μάθησης για παραγωγή συνθετικών δεδομένων, αύξηση δεδομένων, ανωνυμοποίηση κειμένου και προσομοίωση ανταγωνιστικών επιθέσεων.",
+              "Ενεργή συμβολή στα τεχνικά πακέτα εργασίας ευρωπαϊκών ερευνητικών έργων, συμπεριλαμβανομένων της ανάλυσης απαιτήσεων, της ανάπτυξης λογισμικού, της ολοκλήρωσης, της επικύρωσης, των δραστηριοτήτων επίδειξης και της συγγραφής παραδοτέων σύμφωνα με τις προδιαγραφές της Ευρωπαϊκής Επιτροπής.",
+              "Συν-συγγραφέας δημοσιεύσεων με κρίση σε διεθνή επιστημονικά περιοδικά και συνέδρια, συμπεριλαμβανομένων IEEE, ACM, Elsevier και Springer."
+            ]
+          },
+          education: [
+            {
+              date: "09/2016 - 06/2022",
+              location: "Ελλάδα",
+              title: "Ηλεκτρολόγος Μηχανικός και Μηχανικός Υπολογιστών",
+              org: "Πανεπιστήμιο Δυτικής Μακεδονίας (ΠΔΜ), Κοζάνη",
+              body: "Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών, Πολυτεχνική Σχολή. Ειδίκευση: Υπολογιστών και Ηλεκτρονικής. Διπλωματική εργασία: «Παραγωγικά Νευρωνικά Δίκτυα και Εφαρμογές»."
+            },
+            {
+              date: "09/2016 - 06/2022",
+              location: "Ελλάδα",
+              title: "Ενιαίο και Αδιάσπαστο Μεταπτυχιακό Δίπλωμα Ηλεκτρολόγου Μηχανικού και Μηχανικού Υπολογιστών",
+              org: "Πανεπιστήμιο Δυτικής Μακεδονίας (ΠΔΜ), Κοζάνη",
+              body: "Βασικά μαθήματα: Μηχανική Μάθηση, Ασαφή Συστήματα, Τεχνητή Νοημοσύνη, Βιοϊατρική, Ρομποτική, Σχεδίαση και Ανάλυση Αλγορίθμων, Αρχιτεκτονική Υπολογιστών, Παράλληλα και Διανεμημένα Συστήματα, Προχωρημένα Θέματα Ψηφιακού Σχεδιασμού."
+            }
+          ],
+          certifications: [
+            ["Build a Modern Computer from First Principles: From Nand to Tetris", "Coursera / Πανεπιστήμιο της Ιερουσαλήμ, Οκτώβριος 2021"],
+            ["NDG Linux Unhatched", "Cisco Networking Academy, Φεβρουάριος 2022"],
+            ["NDG Linux Essentials", "Cisco Networking Academy, Φεβρουάριος 2022"],
+            ["International Business Strategy", "Διεθνές ομαδικό έργο από το Πανεπιστήμιο Δυτικής Μακεδονίας και το Πανεπιστήμιο Εφαρμοσμένων Επιστημών της Καρλσρούης, χρηματοδοτούμενο από DAAD, Δεκέμβριος 2020"]
+          ],
+          languages: {
+            motherTongue: "Μητρική γλώσσα: Ελληνικά",
+            rows: [
+              ["Αγγλικά", "Β2", "Β2", "Β2", "Β2", "Β2"],
+              ["Γερμανικά", "A1", "A1", "A1", "A1", "A1"]
+            ],
+            headers: ["Γλώσσα", "Ακρόαση", "Ανάγνωση", "Προφορική παραγωγή", "Προφορική επικοινωνία", "Γραφή"]
+          },
+          skillGroups: [
+            ["Γλώσσες προγραμματισμού", ["Python", "C", "C++", "Java", "JavaScript", "MATLAB", "SQL", "Bash"]],
+            ["Πλαίσια και βιβλιοθήκες AI / ML", ["PyTorch", "TensorFlow", "Keras", "scikit-learn", "Hugging Face Transformers", "NumPy", "Pandas", "OpenCV"]],
+            ["Τομείς εξειδίκευσης", ["Παραγωγικά Ανταγωνιστικά Δίκτυα (GANs)", "Βαθιά Μάθηση", "Ανταγωνιστική Μηχανική Μάθηση", "Ανίχνευση / Πρόληψη Εισβολών", "Επεξεργασία Φυσικής Γλώσσας", "Ανάλυση Μεγάλων Δεδομένων"]],
+            ["Εργαλεία και πλατφόρμες", ["Git", "GitHub", "GitLab", "Docker", "Linux / Unix", "Jupyter", "MLflow", "MISP", "OpenCTI"]],
+            ["Παραγωγικότητα", ["MS Office", "Google Workspace", "LaTeX", "Overleaf", "Atlassian Jira", "Confluence"]]
+          ],
+          projectsIntro: "Ευρωπαϊκά ερευνητικά έργα Horizon 2020 και Horizon Europe μέσω της MetaMind Innovations P.C.",
+          projects: [
+            ["ELECTRON", "08/2022 - 02/2024", "AI-enabled κυβερνοασφάλεια, ανίχνευση ανωμαλιών και αυτοΐαση για το έξυπνο ηλεκτρικό δίκτυο."],
+            ["AI4CYBER", "09/2022 - 09/2025", "Αξιόπιστη Τεχνητή Νοημοσύνη για ενίσχυση της κυβερνοασφάλειας και ανθεκτικότητα συστημάτων."],
+            ["TALON", "10/2022 - 09/2025", "Αυτόνομος και αυτο-οργανωμένος τεχνητά ευφυής ενορχηστρωτής για πιο πράσινη Industry 4.0."],
+            ["DYNABIC", "03/2023 - 11/2025", "Δυναμική επιχειρησιακή συνέχεια κρίσιμων υποδομών πάνω σε προσαρμοστική πολυεπίπεδη κυβερνοασφάλεια."],
+            ["NANCY", "01/2023 - 12/2025", "AI-driven blockchain-based Open RAN αρχιτεκτονική για αξιόπιστα, ασφαλή και ευφυή Beyond-5G δίκτυα."],
+            ["SINNOGENES", "01/2023 - 04/2026", "Καινοτομίες αποθήκευσης για πράσινα ενεργειακά συστήματα."],
+            ["REALM", "05/2023 - 04/2026", "Αξιολόγηση κανονιστικών αποφάσεων στην υγεία με πραγματικά δεδομένα."],
+            ["NERO", "12/2023 - 03/2026", "Προηγμένο οικοσύστημα ευαισθητοποίησης κυβερνοασφάλειας για μικρομεσαίες επιχειρήσεις."],
+            ["D-HYDROFLEX", "01/2024 - 04/2026", "Ψηφιακές λύσεις για υδροηλεκτρικές εγκαταστάσεις."],
+            ["RAIDO", "02/2025 - 04/2026", "Αξιόπιστη Τεχνητή Νοημοσύνη και βελτιστοποίηση δεδομένων."],
+            ["EVOSST", "03/2026 - 04/2026", "Αξιολόγηση και αξιοποίηση κοινωνικών υπηρεσιών για βιώσιμη μετάβαση."],
+            ["HIVE", "03/2026 - 04/2026", "Συμβολή σε ευρωπαϊκό ερευνητικό έργο Horizon Europe."]
+          ],
+          publicationsIntro: "Πλήρης λίστα διαθέσιμη στο Google Scholar.",
+          publications: sharedPublications,
+          contactText: "Διαθέσιμος για ερευνητικές συνεργασίες, ευκαιρίες AI engineering και τεχνικές συζητήσεις γύρω από κυβερνοασφάλεια, ανταγωνιστική μηχανική μάθηση και προστασία κρίσιμων υποδομών.",
+          contactLinks: [
+            ["Email", "dasimopoulos@metamind.gr", links.email],
+            ["LinkedIn", "LinkedIn", links.linkedIn],
+            ["Google Scholar", "Google Scholar", links.scholar],
+            ["ORCID", "ORCID", links.orcid]
+          ],
+          footer: "© {year} Δημήτριος Χρήστος Ασημόπουλος. Με επιφύλαξη παντός δικαιώματος."
+        }
+      };
+
+      function clear(node) {
+        node.replaceChildren();
+      }
+
+      function link(label, href) {
+        const anchor = document.createElement("a");
+        anchor.textContent = label;
+        anchor.href = href;
+        return anchor;
+      }
+
+      function setText(id, value) {
+        document.getElementById(id).textContent = value;
+      }
+
+      function renderNav(data) {
+        const nav = document.getElementById("nav");
+        clear(nav);
+        data.nav.forEach(([target, label]) => {
+          nav.appendChild(link(label, `#${target}`));
+        });
+      }
+
+      function renderProfile(data) {
+        const list = document.getElementById("profile-list");
+        clear(list);
+        data.profileFacts.forEach(([label, value, href]) => {
+          const wrapper = document.createElement("div");
+          const dt = document.createElement("dt");
+          const dd = document.createElement("dd");
+          dt.textContent = label;
+          if (href) {
+            dd.appendChild(link(value, href));
+          } else {
+            dd.textContent = value;
+          }
+          wrapper.append(dt, dd);
+          list.appendChild(wrapper);
+        });
+      }
+
+      function renderImpacts(data) {
+        const strip = document.getElementById("impact-strip");
+        clear(strip);
+        data.impacts.forEach(([number, label]) => {
+          const item = document.createElement("div");
+          item.innerHTML = `<strong>${number}</strong><span>${label}</span>`;
+          strip.appendChild(item);
+        });
+      }
+
+      function renderExperience(data) {
+        const container = document.getElementById("experience-content");
+        clear(container);
+        const article = document.createElement("article");
+        article.className = "timeline-item featured";
+        article.innerHTML = `
+          <div class="timeline-date">${data.experience.date}<span>${data.experience.location}</span></div>
+          <div>
+            <h3>${data.experience.title}</h3>
+            <p class="meta">${data.experience.company}</p>
+            <ul class="feature-list"></ul>
+          </div>
+        `;
+        const list = article.querySelector("ul");
+        data.experience.bullets.forEach((text) => {
+          const li = document.createElement("li");
+          li.textContent = text;
+          list.appendChild(li);
+        });
+        container.appendChild(article);
+      }
+
+      function renderStack(id, items) {
+        const container = document.getElementById(id);
+        clear(container);
+        items.forEach((item) => {
+          const article = document.createElement("article");
+          article.className = "stack-item";
+          if (Array.isArray(item)) {
+            article.innerHTML = `<h3>${item[0]}</h3><p>${item[1]}</p>`;
+          } else {
+            article.innerHTML = `
+              <p class="meta">${item.date} · ${item.location}</p>
+              <h3>${item.title}</h3>
+              <p class="org">${item.org}</p>
+              <p>${item.body}</p>
+            `;
+          }
+          container.appendChild(article);
+        });
+      }
+
+      function renderLanguages(data) {
+        const container = document.getElementById("languages-content");
+        clear(container);
+        const mother = document.createElement("p");
+        mother.className = "mother-tongue";
+        mother.textContent = data.languages.motherTongue;
+        const table = document.createElement("table");
+        table.className = "language-table";
+        const thead = document.createElement("thead");
+        thead.innerHTML = `<tr>${data.languages.headers.map((h) => `<th>${h}</th>`).join("")}</tr>`;
+        const tbody = document.createElement("tbody");
+        data.languages.rows.forEach((row) => {
+          tbody.innerHTML += `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`;
+        });
+        table.append(thead, tbody);
+        container.append(mother, table);
+      }
+
+      function renderSkills(data) {
+        const container = document.getElementById("skills-content");
+        clear(container);
+        data.skillGroups.forEach(([title, skills]) => {
+          const group = document.createElement("article");
+          group.className = "skill-group";
+          group.innerHTML = `<h3>${title}</h3><div class="skills"></div>`;
+          const skillList = group.querySelector(".skills");
+          skills.forEach((skill) => {
+            const span = document.createElement("span");
+            span.textContent = skill;
+            skillList.appendChild(span);
+          });
+          container.appendChild(group);
+        });
+      }
+
+      function renderProjects(data) {
+        const container = document.getElementById("projects-content");
+        clear(container);
+        data.projects.forEach(([title, date, body]) => {
+          const article = document.createElement("article");
+          article.className = "project-card";
+          article.innerHTML = `<p class="meta">${date}</p><h3>${title}</h3><p>${body}</p>`;
+          container.appendChild(article);
+        });
+      }
+
+      function renderPublications(data) {
+        const container = document.getElementById("publications-content");
+        clear(container);
+        data.publications.forEach((publication) => {
+          const li = document.createElement("li");
+          li.textContent = publication;
+          container.appendChild(li);
+        });
+      }
+
+      function renderContact(data) {
+        const container = document.getElementById("contact-links");
+        clear(container);
+        data.contactLinks.forEach(([aria, label, href]) => {
+          const anchor = link(label, href);
+          anchor.setAttribute("aria-label", aria);
+          container.appendChild(anchor);
+        });
+      }
+
+      function setLanguage(lang) {
+        const data = content[lang];
+        document.documentElement.lang = lang;
+        document.title = data.pageTitle;
+
+        renderNav(data);
+        renderProfile(data);
+        renderImpacts(data);
+
+        setText("hero-label", data.heroLabel);
+        setText("hero-text", data.heroText);
+        setText("contact-action", data.contactAction);
+        setText("profile-label", data.profileLabel);
+        setText("profile-title", data.profileTitle);
+        setText("profile-text", data.profileText);
+
+        const cvAction = document.getElementById("cv-action");
+        cvAction.textContent = data.cvAction;
+        cvAction.href = data.cvHref;
+
+        setText("experience-label", data.sections.experience[0]);
+        setText("experience-title", data.sections.experience[1]);
+        setText("education-label", data.sections.education[0]);
+        setText("education-title", data.sections.education[1]);
+        setText("certifications-label", data.sections.certifications[0]);
+        setText("certifications-title", data.sections.certifications[1]);
+        setText("languages-label", data.sections.languages[0]);
+        setText("languages-title", data.sections.languages[1]);
+        setText("skills-label", data.sections.skills[0]);
+        setText("skills-title", data.sections.skills[1]);
+        setText("projects-label", data.sections.projects[0]);
+        setText("projects-title", data.sections.projects[1]);
+        setText("projects-intro", data.projectsIntro);
+        setText("publications-label", data.sections.publications[0]);
+        setText("publications-title", data.sections.publications[1]);
+        setText("publications-intro", data.publicationsIntro);
+        setText("contact-label", data.sections.contact[0]);
+        setText("contact-title", data.sections.contact[1]);
+        setText("contact-text", data.contactText);
+        setText("footer-text", data.footer.replace("{year}", new Date().getFullYear()));
+
+        renderExperience(data);
+        renderStack("education-content", data.education);
+        renderStack("certifications-content", data.certifications);
+        renderLanguages(data);
+        renderSkills(data);
+        renderProjects(data);
+        renderPublications(data);
+        renderContact(data);
+
+        document.querySelectorAll(".lang-button").forEach((button) => {
+          button.classList.toggle("active", button.dataset.lang === lang);
+        });
+      }
+
+      document.querySelectorAll(".lang-button").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+
+      setLanguage("en");
+    </script>
+  </body>
+</html>

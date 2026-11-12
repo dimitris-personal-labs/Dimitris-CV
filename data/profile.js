@@ -37,6 +37,13 @@ window.CV_PROFILE = {
         body: "Proposed dissertation title: “AI in IoT Systems: Security, Privacy, Ethical Challenges & Solutions”."
       },
       {
+        date: "10/2025 - Current",
+        location: "Greece",
+        title: "MBA in Management Information Systems",
+        org: "University of Western Macedonia (UOWM), Kozani & Grevena",
+        body: "Master in Business Administration (MBA) in Management Information Systems: inter-departmental postgraduate programme of the Department of Electrical and Computer Engineering (School of Engineering) and the Department of Business Administration, Grevena (School of Economic Sciences)."
+      },
+      {
         date: "09/2016 - 06/2022",
         location: "Greece",
         title: "Electrical and Computer Engineering",
@@ -96,6 +103,13 @@ window.CV_PROFILE = {
         title: "Υποψήφιος Διδάκτορας",
         org: "Διεθνές Πανεπιστήμιο της Ελλάδος (ΔΙΠΑΕ), Τμήμα Μηχανικών Πληροφορικής και Ηλεκτρονικών Συστημάτων",
         body: "Προτεινόμενος τίτλος διδακτορικής διατριβής: «Τεχνητή Νοημοσύνη στα Συστήματα ΔτΠ: Ασφάλεια, ηθικές προκλήσεις και λύσεις»."
+      },
+      {
+        date: "10/2025 - Σήμερα",
+        location: "Ελλάδα",
+        title: "MBA στη Διοίκηση Επιχειρήσεων με κατεύθυνση Πληροφοριακά Συστήματα Διοίκησης",
+        org: "Πανεπιστήμιο Δυτικής Μακεδονίας (ΠΔΜ), Κοζάνη & Γρεβενά",
+        body: "Διατμηματικό Πρόγραμμα Μεταπτυχιακών Σπουδών (ΔΠΜΣ) του Τμήματος Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών της Πολυτεχνικής Σχολής, σε συνεργασία με το Τμήμα Οργάνωσης και Διοίκησης Επιχειρήσεων (Γρεβενά) της Σχολής Οικονομικών Επιστημών."
       },
       {
         date: "09/2016 - 06/2022",

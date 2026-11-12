@@ -1,149 +1,232 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Dimitrios Christos Asimopoulos - AI Engineer and Electrical Engineer portfolio."
+      content="Dimitrios Christos Asimopoulos – AI Researcher, Ph.D. candidate and Electrical & Computer Engineer. Publications, EU research projects and CV."
     />
-    <title>Dimitrios Christos Asimopoulos | AI Engineer</title>
+    <meta name="theme-color" content="#07060b" />
+    <title>Dimitrios Christos Asimopoulos | AI Researcher</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      // Apply the saved theme before the page paints (default: dark).
+      try {
+        const saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    </script>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Home">DCA</a>
+    <canvas id="bg-network" aria-hidden="true"></canvas>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header" id="site-header">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-badge">DA</span>
+        <span class="brand-name">Dimitrios Asimopoulos</span>
+      </a>
       <nav class="nav" id="nav" aria-label="Primary navigation"></nav>
-      <div class="language-switcher" aria-label="Language switcher">
-        <button class="lang-button active" type="button" data-lang="en">EN</button>
-        <button class="lang-button" type="button" data-lang="el">EL</button>
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Language switcher">
+          <button class="lang-button active" type="button" data-lang="en">EN</button>
+          <button class="lang-button" type="button" data-lang="el">EL</button>
+        </div>
+        <button class="icon-button" type="button" id="theme-toggle" aria-label="Toggle light and dark theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        </button>
+        <a class="button primary small resume-button" id="resume-action" href="#" target="_blank" rel="noopener"></a>
+        <button class="icon-button menu-button" type="button" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
       </div>
     </header>
 
     <main id="top">
+      <!-- HERO -->
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow" id="hero-label"></p>
-          <h1>Dimitrios Christos Asimopoulos</h1>
-          <p class="headline" id="hero-text"></p>
-          <div class="hero-actions">
-            <a class="button primary" id="contact-action" href="#contact"></a>
-            <a class="button secondary" id="cv-action" href="#"></a>
+          <p class="hero-hello" id="hero-hello" data-reveal></p>
+          <h1 data-reveal style="--i: 1">
+            <span id="hero-intro"></span>
+            <span class="gradient-text" id="hero-name"></span>
+          </h1>
+          <p class="hero-role" data-reveal style="--i: 2">
+            <span id="hero-role"></span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="hero-text" id="hero-text" data-reveal style="--i: 3"></p>
+          <div class="hero-actions" data-reveal style="--i: 4">
+            <a class="button primary" id="discover-action" href="#about"></a>
+            <a class="round-button" href="#about" aria-label="Scroll to about">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
           </div>
-          <div class="impact-strip" id="impact-strip" aria-label="Career highlights"></div>
+          <div class="follow" data-reveal style="--i: 5">
+            <span id="follow-label"></span>
+            <div class="social" id="social-links"></div>
+          </div>
         </div>
 
-        <aside class="profile-panel" aria-label="Profile summary">
-          <img
-            class="profile-photo"
-            src="assets/dimitrios-asimopoulos-photo.jpg"
-            alt="Dimitrios Christos Asimopoulos"
-          />
-          <div class="profile-card">
-            <p class="profile-name">Dimitrios Christos Asimopoulos</p>
-            <dl id="profile-list"></dl>
+        <div class="hero-visual" id="hero-visual" data-reveal style="--i: 2">
+          <div class="orbit" id="orbit">
+            <div class="orbit-ring ring-outer"></div>
+            <div class="orbit-ring ring-dashed"></div>
+            <div class="orbit-glow"></div>
+            <div class="orbit-disc"></div>
+            <img
+              class="hero-photo"
+              src="assets/dimitrios-asimopoulos-photo.jpg"
+              alt="Dimitrios Christos Asimopoulos"
+              width="900"
+              height="900"
+            />
+            <div class="float-card card-a" data-depth="18">
+              <strong data-count="publications">0</strong>
+              <span id="float-publications"></span>
+            </div>
+            <div class="float-card card-b" data-depth="28">
+              <strong data-count="projects">0</strong>
+              <span id="float-projects"></span>
+            </div>
+            <div class="float-card card-c" data-depth="12">
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <strong><span data-count="years">0</span>+</strong>
+              <span id="float-years"></span>
+            </div>
           </div>
-        </aside>
+        </div>
+
+        <a class="scroll-cue" href="#numbers" aria-label="Scroll down"><span></span></a>
       </section>
 
-      <section class="section intro-section" id="profile">
-        <div class="section-kicker">01</div>
-        <div class="section-heading">
-          <p class="section-label" id="profile-label"></p>
-          <h2 id="profile-title"></h2>
+      <!-- KPI BAND -->
+      <section class="numbers" id="numbers" aria-labelledby="numbers-title">
+        <div class="section-heading centered" data-reveal>
+          <p class="section-label" id="numbers-label"></p>
+          <h2 id="numbers-title"></h2>
         </div>
-        <div class="section-body">
-          <p id="profile-text"></p>
+        <div class="kpi-grid" id="kpi-grid"></div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="section-heading" data-reveal>
+          <p class="section-label"><span class="kicker">01</span><span id="about-label"></span></p>
+          <h2 id="about-title"></h2>
+        </div>
+        <div class="about-grid">
+          <p class="about-text" id="profile-text" data-reveal></p>
+          <dl class="fact-list glass" id="profile-list" data-reveal style="--i: 1"></dl>
         </div>
       </section>
 
+      <!-- EXPERIENCE + EDUCATION -->
       <section class="section" id="experience">
-        <div class="section-kicker">02</div>
-        <div class="section-heading">
-          <p class="section-label" id="experience-label"></p>
+        <div class="section-heading" data-reveal>
+          <p class="section-label"><span class="kicker">02</span><span id="experience-label"></span></p>
           <h2 id="experience-title"></h2>
         </div>
-        <div id="experience-content"></div>
-      </section>
-
-      <section class="section" id="education">
-        <div class="section-kicker">03</div>
-        <div class="section-heading">
-          <p class="section-label" id="education-label"></p>
-          <h2 id="education-title"></h2>
+        <div class="journey">
+          <div>
+            <h3 class="column-title" id="work-column" data-reveal></h3>
+            <ol class="timeline" id="experience-content"></ol>
+          </div>
+          <div id="education">
+            <h3 class="column-title" id="education-column" data-reveal></h3>
+            <ol class="timeline" id="education-content"></ol>
+          </div>
         </div>
-        <div class="stack-list" id="education-content"></div>
       </section>
 
-      <section class="section" id="certifications">
-        <div class="section-kicker">04</div>
-        <div class="section-heading">
-          <p class="section-label" id="certifications-label"></p>
-          <h2 id="certifications-title"></h2>
-        </div>
-        <div class="stack-list compact" id="certifications-content"></div>
-      </section>
-
-      <section class="section" id="languages">
-        <div class="section-kicker">05</div>
-        <div class="section-heading">
-          <p class="section-label" id="languages-label"></p>
-          <h2 id="languages-title"></h2>
-        </div>
-        <div id="languages-content"></div>
-      </section>
-
-      <section class="section" id="digital-skills">
-        <div class="section-kicker">06</div>
-        <div class="section-heading">
-          <p class="section-label" id="skills-label"></p>
-          <h2 id="skills-title"></h2>
-        </div>
-        <div class="skill-groups" id="skills-content"></div>
-      </section>
-
+      <!-- PROJECTS -->
       <section class="section" id="projects">
-        <div class="section-kicker">07</div>
-        <div class="section-heading">
-          <p class="section-label" id="projects-label"></p>
+        <div class="section-heading" data-reveal>
+          <p class="section-label"><span class="kicker">03</span><span id="projects-label"></span></p>
           <h2 id="projects-title"></h2>
           <p class="section-intro" id="projects-intro"></p>
         </div>
+        <div class="filters" id="project-filters" role="tablist" data-reveal></div>
         <div class="project-grid" id="projects-content"></div>
       </section>
 
+      <!-- PUBLICATIONS -->
       <section class="section" id="publications">
-        <div class="section-kicker">08</div>
-        <div class="section-heading">
-          <p class="section-label" id="publications-label"></p>
+        <div class="section-heading" data-reveal>
+          <p class="section-label"><span class="kicker">04</span><span id="publications-label"></span></p>
           <h2 id="publications-title"></h2>
-          <p class="section-intro" id="publications-intro"></p>
+          <p class="section-intro">
+            <span id="publications-intro"></span>
+            <a id="scholar-link" target="_blank" rel="noopener">Google Scholar ↗</a>
+          </p>
         </div>
+        <div class="filters" id="publication-filters" role="tablist" data-reveal></div>
         <ol class="publication-list" id="publications-content"></ol>
       </section>
 
-      <section class="contact-section" id="contact">
-        <p class="section-label" id="contact-label"></p>
-        <h2 id="contact-title"></h2>
-        <p id="contact-text"></p>
-        <div class="contact-links" id="contact-links"></div>
+      <!-- SKILLS -->
+      <section class="section" id="skills">
+        <div class="section-heading" data-reveal>
+          <p class="section-label"><span class="kicker">05</span><span id="skills-label"></span></p>
+          <h2 id="skills-title"></h2>
+        </div>
+        <div class="marquee" aria-hidden="true"><div class="marquee-track" id="skills-marquee"></div></div>
+        <div class="skill-groups" id="skills-content"></div>
+      </section>
+
+      <!-- LANGUAGES + CERTIFICATIONS -->
+      <section class="section" id="credentials">
+        <div class="section-heading" data-reveal>
+          <p class="section-label"><span class="kicker">06</span><span id="credentials-label"></span></p>
+          <h2 id="credentials-title"></h2>
+        </div>
+        <div class="credentials-grid">
+          <div class="glass panel" data-reveal>
+            <h3 class="column-title" id="languages-column"></h3>
+            <div id="languages-content"></div>
+          </div>
+          <div class="glass panel" data-reveal style="--i: 1">
+            <h3 class="column-title" id="certifications-column"></h3>
+            <ul class="cert-list" id="certifications-content"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact" id="contact">
+        <div class="contact-card" data-reveal>
+          <p class="section-label" id="contact-label"></p>
+          <div class="contact-links" id="contact-links"></div>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <p id="footer-text"></p>
+      <p class="visits" id="footer-visits" hidden></p>
     </footer>
 
     <script src="data/publications.js"></script>
     <script src="data/projects.js"></script>
     <script src="data/profile.js"></script>
     <script>
+      // ------------------------------------------------------------------
+      // Settings
+      // ------------------------------------------------------------------
+
+      // Visitor counter (optional). Create a free, cookie-free account at
+      // https://www.goatcounter.com, enable "Allow adding visitor counts on
+      // your website" in its settings, and put your site code here
+      // (the part before .goatcounter.com). Leave empty to hide the counter.
+      const GOATCOUNTER_CODE = "";
+
       const links = {
         email: "mailto:dasimopoulos@metamind.gr",
         linkedIn: "https://www.linkedin.com/in/dimitris-christos-asimopoulos-2a627a262/",
@@ -153,6 +236,11 @@
         cvEl: "assets/dimitrios-asimopoulos-cv-el.pdf"
       };
 
+      const RD_START = { year: 2022, month: 8 }; // start of R&D work at MetaMind
+
+      // ------------------------------------------------------------------
+      // Data helpers
+      // ------------------------------------------------------------------
 
       const MONTHS = ["January", "February", "March", "April", "May", "June", "July",
         "August", "September", "October", "November", "December"];
@@ -165,22 +253,6 @@
         b.year - a.year || MONTHS.indexOf(b.month) - MONTHS.indexOf(a.month)
       );
 
-      const peerReviewedCount = window.CV_PUBLICATIONS.filter((pub) => pub.type !== "preprint").length;
-      const projectCount = window.CV_PROJECTS.length;
-
-      function publicationDetails(pub) {
-        const parts = [pub.venue];
-        if (pub.pages) parts.push(pub.pages);
-        parts.push(pub.month ? `${pub.month} ${pub.year}` : String(pub.year));
-        if (pub.doi) parts.push(`doi: ${pub.doi}`);
-        return parts.join(", ");
-      }
-
-      function publicationLink(pub) {
-        if (pub.doi) return `https://doi.org/${pub.doi}`;
-        return pub.url || "";
-      }
-
       // "MM/YYYY" -> number that sorts by date, e.g. "09/2024" -> 202409.
       function monthValue(mmYYYY) {
         const [month, year] = mmYYYY.split("/").map(Number);
@@ -190,344 +262,470 @@
       const today = new Date();
       const currentMonth = today.getFullYear() * 100 + today.getMonth() + 1;
 
+      function isOngoing(project) {
+        return !project.end || monthValue(project.end) >= currentMonth;
+      }
+
       // Oldest first, by start date.
       const sortedProjects = [...window.CV_PROJECTS].sort(
         (a, b) => monthValue(a.start) - monthValue(b.start)
       );
 
-      function projectDates(project, ongoingLabel) {
-        if (!project.end) return `${project.start} - ${ongoingLabel}`;
-        const ongoing = monthValue(project.end) >= currentMonth;
-        return `${project.start} - ${project.end}${ongoing ? ` (${ongoingLabel.toLowerCase()})` : ""}`;
+      const peerReviewed = window.CV_PUBLICATIONS.filter((pub) => pub.type !== "preprint");
+      const stats = {
+        publications: peerReviewed.length,
+        journals: window.CV_PUBLICATIONS.filter((pub) => pub.type === "journal").length,
+        conferences: window.CV_PUBLICATIONS.filter((pub) => pub.type === "conference").length,
+        firstAuthor: peerReviewed.filter((pub) => pub.authors.search(OWN_NAME) === 0).length,
+        projects: window.CV_PROJECTS.length,
+        ongoing: window.CV_PROJECTS.filter(isOngoing).length,
+        years: Math.floor(((today.getFullYear() - RD_START.year) * 12 + today.getMonth() + 1 - RD_START.month) / 12),
+        visitors: null
+      };
+
+      function publicationLink(pub) {
+        if (pub.doi) return `https://doi.org/${pub.doi}`;
+        return pub.url || "";
       }
 
-      function projectsFor(lang, ongoingLabel) {
-        return sortedProjects.map((project) => [
-          project.name,
-          projectDates(project, ongoingLabel),
-          project.description[lang],
-          project.programme || "",
-          project.url || ""
-        ]);
-      }
+      // ------------------------------------------------------------------
+      // Text in both languages
+      // ------------------------------------------------------------------
 
       const content = {
         en: {
-          pageTitle: "Dimitrios Christos Asimopoulos | AI Engineer",
+          pageTitle: "Dimitrios Christos Asimopoulos | AI Researcher",
           nav: [
-            ["experience", "Work Experience"],
-            ["education", "Education"],
-            ["certifications", "Certifications"],
-            ["languages", "Languages"],
-            ["digital-skills", "Digital Skills"],
+            ["about", "About"],
+            ["experience", "Journey"],
             ["projects", "Projects"],
             ["publications", "Publications"],
             ["contact", "Contact"]
           ],
-          heroLabel: "AI Researcher / Electrical Engineer",
-          heroText: "Ph.D. candidate and AI researcher working on AI in IoT systems, cybersecurity, privacy, ethical challenges and solutions.",
-          contactAction: "Contact",
-          cvAction: "Download CV",
+          resume: "Resume",
           cvHref: links.cvEn,
-          impacts: [
-            ["2022", "R&D since"],
-            [String(projectCount), "EU research projects"],
-            [String(peerReviewedCount), "peer-reviewed publications"]
-          ],
-          profileLabel: "Profile",
-          profileTitle: "Professional summary",
+          hello: "Hello,",
+          intro: "I’m",
+          name: "Dimitrios Asimopoulos",
+          roles: ["AI Researcher", "Ph.D. Candidate", "Electrical & Computer Engineer", "Adversarial ML Researcher"],
+          heroText: "Researching trustworthy AI for IoT systems and critical infrastructure – security, privacy, ethical challenges and solutions.",
+          discover: "Discover more",
+          follow: "Follow me:",
+          float: { publications: "Publications", projects: "EU projects", years: "Years in R&D" },
+          numbersLabel: "In numbers",
+          numbersTitle: "Research at a glance",
+          kpis: {
+            publications: "Peer-reviewed publications",
+            journals: "Journal articles",
+            conferences: "Conference papers",
+            firstAuthor: "First-author papers",
+            projects: "EU research projects",
+            ongoing: "Ongoing projects",
+            years: "Years in R&D",
+            visitors: "Visitors to this site"
+          },
+          aboutLabel: "About",
+          aboutTitle: "Professional summary",
           ...window.CV_PROFILE.en,
           profileFacts: [
             ["Role", "AI Researcher / Electrical Engineer"],
+            ["Ph.D.", "International Hellenic University"],
             ["Location", "Thessaloniki, Greece"],
             ["Email", "dasimopoulos@metamind.gr", links.email],
-            ["LinkedIn", "Profile", links.linkedIn],
-            ["Google Scholar", "Citations", links.scholar],
             ["ORCID", "0009-0009-6439-0857", links.orcid]
           ],
-          sections: {
-            experience: ["Work Experience", "Professional experience"],
-            education: ["Education and Training", "Academic background"],
-            certifications: ["Certifications", "Additional training certifications"],
-            languages: ["Language Skills", "Languages"],
-            skills: ["Digital Skills", "Technical toolkit"],
-            projects: ["Projects", "EU-funded research projects"],
-            publications: ["Publications", "Selected peer-reviewed publications"],
-            contact: ["Contact", "Let’s connect"]
-          },
-          projectsIntro: "EU-funded research projects (Horizon 2020, Horizon Europe and Digital Europe) through MetaMind Innovations P.C.",
-          projects: projectsFor("en", "Ongoing"),
-          publicationsIntro: "Full list available on Google Scholar.",
-          publications: sortedPublications,
-          contactText: "Available for research collaborations, AI engineering opportunities and technical discussions around cybersecurity, adversarial machine learning and critical infrastructure protection.",
-          contactLinks: [
-            ["Email", "dasimopoulos@metamind.gr", links.email],
-            ["LinkedIn", "LinkedIn", links.linkedIn],
-            ["Google Scholar", "Google Scholar", links.scholar],
-            ["ORCID", "ORCID", links.orcid]
-          ],
-          footer: "© {year} Dimitrios Christos Asimopoulos. All rights reserved."
+          experienceLabel: "Journey",
+          experienceTitle: "Experience & education",
+          workColumn: "Work experience",
+          educationColumn: "Education",
+          projectsLabel: "Projects",
+          projectsTitle: "EU-funded research projects",
+          projectsIntro: "Horizon 2020, Horizon Europe and Digital Europe projects through MetaMind Innovations P.C.",
+          projectFilters: [["all", "All"], ["ongoing", "Ongoing"], ["completed", "Completed"]],
+          ongoing: "Ongoing",
+          completed: "Completed",
+          publicationsLabel: "Publications",
+          publicationsTitle: "Peer-reviewed publications",
+          publicationsIntro: "Newest first. Full list on",
+          publicationFilters: [["all", "All"], ["journal", "Journals"], ["conference", "Conferences"]],
+          types: { journal: "Journal", conference: "Conference", preprint: "Preprint" },
+          skillsLabel: "Skills",
+          skillsTitle: "Technical toolkit",
+          credentialsLabel: "Credentials",
+          credentialsTitle: "Languages & certifications",
+          languagesColumn: "Languages",
+          certificationsColumn: "Certifications",
+          contactLabel: "Contact",
+          contactLinks: { email: "Email", linkedIn: "LinkedIn", orcid: "ORCID", cv: "Download CV" },
+          footer: "© {year} Dimitrios Christos Asimopoulos.",
+          visits: "{n} visits since launch"
         },
         el: {
-          pageTitle: "Δημήτριος Χρήστος Ασημόπουλος | Μηχανικός Τεχνητής Νοημοσύνης",
+          pageTitle: "Δημήτριος Χρήστος Ασημόπουλος | Ερευνητής Τεχνητής Νοημοσύνης",
           nav: [
-            ["experience", "Επαγγελματική Εμπειρία"],
-            ["education", "Εκπαίδευση"],
-            ["certifications", "Πιστοποιήσεις"],
-            ["languages", "Γλώσσες"],
-            ["digital-skills", "Ψηφιακές Δεξιότητες"],
+            ["about", "Προφίλ"],
+            ["experience", "Πορεία"],
             ["projects", "Έργα"],
             ["publications", "Δημοσιεύσεις"],
             ["contact", "Επικοινωνία"]
           ],
-          heroLabel: "Ερευνητής Τεχνητής Νοημοσύνης / Ηλεκτρολόγος Μηχανικός",
-          heroText: "Υποψήφιος διδάκτορας και ερευνητής Τεχνητής Νοημοσύνης με αντικείμενο την AI σε συστήματα IoT, την ασφάλεια, την ιδιωτικότητα, τις ηθικές προκλήσεις και τις αντίστοιχες λύσεις.",
-          contactAction: "Επικοινωνία",
-          cvAction: "Λήψη βιογραφικού",
+          resume: "Βιογραφικό",
           cvHref: links.cvEl,
-          impacts: [
-            ["2022", "Έρευνα και ανάπτυξη από"],
-            [String(projectCount), "ευρωπαϊκά ερευνητικά έργα"],
-            [String(peerReviewedCount), "δημοσιεύσεις με κρίση"]
-          ],
-          profileLabel: "Προφίλ",
-          profileTitle: "Επαγγελματική περίληψη",
+          hello: "Γεια σας,",
+          intro: "Είμαι ο",
+          name: "Δημήτρης Ασημόπουλος",
+          roles: ["Ερευνητής Τεχνητής Νοημοσύνης", "Υποψήφιος Διδάκτορας", "Ηλεκτρολόγος Μηχανικός & Μηχ. Υπολογιστών", "Ερευνητής Ανταγωνιστικής Μηχανικής Μάθησης"],
+          heroText: "Έρευνα για αξιόπιστη Τεχνητή Νοημοσύνη σε συστήματα IoT και κρίσιμες υποδομές – ασφάλεια, ιδιωτικότητα, ηθικές προκλήσεις και λύσεις.",
+          discover: "Μάθετε περισσότερα",
+          follow: "Ακολουθήστε με:",
+          float: { publications: "Δημοσιεύσεις", projects: "Ευρωπαϊκά έργα", years: "Χρόνια Ε&Α" },
+          numbersLabel: "Σε αριθμούς",
+          numbersTitle: "Η έρευνα με μια ματιά",
+          kpis: {
+            publications: "Δημοσιεύσεις με κρίση",
+            journals: "Άρθρα σε περιοδικά",
+            conferences: "Δημοσιεύσεις σε συνέδρια",
+            firstAuthor: "Ως πρώτος συγγραφέας",
+            projects: "Ευρωπαϊκά ερευνητικά έργα",
+            ongoing: "Έργα σε εξέλιξη",
+            years: "Χρόνια στην Έρευνα & Ανάπτυξη",
+            visitors: "Επισκέψεις στη σελίδα"
+          },
+          aboutLabel: "Προφίλ",
+          aboutTitle: "Επαγγελματική περίληψη",
           ...window.CV_PROFILE.el,
           profileFacts: [
             ["Ρόλος", "Ερευνητής Τεχνητής Νοημοσύνης / Ηλεκτρολόγος Μηχανικός"],
+            ["Διδακτορικό", "Διεθνές Πανεπιστήμιο της Ελλάδος"],
             ["Τοποθεσία", "Θεσσαλονίκη, Ελλάδα"],
             ["Email", "dasimopoulos@metamind.gr", links.email],
-            ["LinkedIn", "Προφίλ", links.linkedIn],
-            ["Google Scholar", "Δημοσιεύσεις", links.scholar],
             ["ORCID", "0009-0009-6439-0857", links.orcid]
           ],
-          sections: {
-            experience: ["Επαγγελματική Εμπειρία", "Επαγγελματική πορεία"],
-            education: ["Εκπαίδευση και Κατάρτιση", "Ακαδημαϊκό υπόβαθρο"],
-            certifications: ["Πιστοποιήσεις", "Πρόσθετες πιστοποιήσεις κατάρτισης"],
-            languages: ["Γλωσσικές Δεξιότητες", "Γλώσσες"],
-            skills: ["Ψηφιακές Δεξιότητες", "Τεχνικό υπόβαθρο"],
-            projects: ["Έργα", "Ευρωπαϊκά ερευνητικά έργα"],
-            publications: ["Δημοσιεύσεις", "Επιλεγμένες δημοσιεύσεις με κρίση"],
-            contact: ["Επικοινωνία", "Ας συνδεθούμε"]
-          },
-          projectsIntro: "Ευρωπαϊκά ερευνητικά έργα (Horizon 2020, Horizon Europe και Digital Europe) μέσω της MetaMind Innovations P.C.",
-          projects: projectsFor("el", "Σε εξέλιξη"),
-          publicationsIntro: "Πλήρης λίστα διαθέσιμη στο Google Scholar.",
-          publications: sortedPublications,
-          contactText: "Διαθέσιμος για ερευνητικές συνεργασίες, ευκαιρίες AI engineering και τεχνικές συζητήσεις γύρω από κυβερνοασφάλεια, ανταγωνιστική μηχανική μάθηση και προστασία κρίσιμων υποδομών.",
-          contactLinks: [
-            ["Email", "dasimopoulos@metamind.gr", links.email],
-            ["LinkedIn", "LinkedIn", links.linkedIn],
-            ["Google Scholar", "Google Scholar", links.scholar],
-            ["ORCID", "ORCID", links.orcid]
-          ],
-          footer: "© {year} Δημήτριος Χρήστος Ασημόπουλος. Με επιφύλαξη παντός δικαιώματος."
+          experienceLabel: "Πορεία",
+          experienceTitle: "Εμπειρία & εκπαίδευση",
+          workColumn: "Επαγγελματική εμπειρία",
+          educationColumn: "Εκπαίδευση",
+          projectsLabel: "Έργα",
+          projectsTitle: "Ευρωπαϊκά ερευνητικά έργα",
+          projectsIntro: "Έργα Horizon 2020, Horizon Europe και Digital Europe μέσω της MetaMind Innovations P.C.",
+          projectFilters: [["all", "Όλα"], ["ongoing", "Σε εξέλιξη"], ["completed", "Ολοκληρωμένα"]],
+          ongoing: "Σε εξέλιξη",
+          completed: "Ολοκληρώθηκε",
+          publicationsLabel: "Δημοσιεύσεις",
+          publicationsTitle: "Δημοσιεύσεις με κρίση",
+          publicationsIntro: "Από τις πιο πρόσφατες. Πλήρης λίστα στο",
+          publicationFilters: [["all", "Όλες"], ["journal", "Περιοδικά"], ["conference", "Συνέδρια"]],
+          types: { journal: "Περιοδικό", conference: "Συνέδριο", preprint: "Προδημοσίευση" },
+          skillsLabel: "Δεξιότητες",
+          skillsTitle: "Τεχνικό υπόβαθρο",
+          credentialsLabel: "Προσόντα",
+          credentialsTitle: "Γλώσσες & πιστοποιήσεις",
+          languagesColumn: "Γλώσσες",
+          certificationsColumn: "Πιστοποιήσεις",
+          contactLabel: "Επικοινωνία",
+          contactLinks: { email: "Email", linkedIn: "LinkedIn", orcid: "ORCID", cv: "Λήψη βιογραφικού" },
+          footer: "© {year} Δημήτριος Χρήστος Ασημόπουλος.",
+          visits: "{n} επισκέψεις από την έναρξη"
         }
       };
 
-      function clear(node) {
-        node.replaceChildren();
-      }
+      // ------------------------------------------------------------------
+      // Icons
+      // ------------------------------------------------------------------
 
-      function link(label, href) {
-        const anchor = document.createElement("a");
-        anchor.textContent = label;
-        anchor.href = href;
-        return anchor;
+      const ICONS = {
+        linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.6 4.77 6v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"/></svg>',
+        scholar: '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M12 3 1.5 9.5 12 16l8-4.95V17h2V9.5zM5.5 13.2V17c0 1.9 2.9 3.5 6.5 3.5s6.5-1.6 6.5-3.5v-3.8L12 17.2z"/></svg>',
+        orcid: '<svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="16.5" text-anchor="middle" class="fill" font-size="11" font-weight="700" font-family="Inter, sans-serif">iD</text></svg>',
+        email: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>',
+        external: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>',
+        doc: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8.5 13h7M8.5 17h5"/></svg>',
+        journal: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H20v15H5.5A1.5 1.5 0 0 0 4 19.5z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H20v-3"/></svg>',
+        mic: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
+        pen: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4-1 11-11-3-3L5 16z"/><path d="m14 6 3 3"/></svg>',
+        globe: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+        pulse: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>',
+        clock: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+        eye: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>'
+      };
+
+      const KPI_ORDER = [
+        ["publications", "doc"],
+        ["journals", "journal"],
+        ["conferences", "mic"],
+        ["firstAuthor", "pen"],
+        ["projects", "globe"],
+        ["ongoing", "pulse"],
+        ["years", "clock", "+"],
+        ["visitors", "eye"]
+      ];
+
+      // ------------------------------------------------------------------
+      // Rendering
+      // ------------------------------------------------------------------
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function el(tag, className, text) {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text !== undefined) node.textContent = text;
+        return node;
       }
 
       function setText(id, value) {
         document.getElementById(id).textContent = value;
       }
 
+      function externalLink(label, href, className) {
+        const a = el("a", className, label);
+        a.href = href;
+        if (!href.startsWith("mailto:") && !href.startsWith("#")) {
+          a.target = "_blank";
+          a.rel = "noopener";
+        }
+        return a;
+      }
+
       function renderNav(data) {
         const nav = document.getElementById("nav");
-        clear(nav);
-        data.nav.forEach(([target, label]) => {
-          nav.appendChild(link(label, `#${target}`));
-        });
+        nav.replaceChildren(...data.nav.map(([target, label]) => {
+          const a = el("a", "", label);
+          a.href = `#${target}`;
+          a.dataset.target = target;
+          return a;
+        }));
       }
 
-      function renderProfile(data) {
+      function renderSocial(id) {
+        const items = [
+          ["LinkedIn", links.linkedIn, "linkedin"],
+          ["Google Scholar", links.scholar, "scholar"],
+          ["ORCID", links.orcid, "orcid"],
+          ["Email", links.email, "email"]
+        ];
+        document.getElementById(id).replaceChildren(...items.map(([label, href, icon]) => {
+          const a = externalLink("", href, "social-link");
+          a.setAttribute("aria-label", label);
+          a.title = label;
+          a.innerHTML = ICONS[icon];
+          return a;
+        }));
+      }
+
+      function renderKpis(data) {
+        const grid = document.getElementById("kpi-grid");
+        grid.replaceChildren(...KPI_ORDER
+          .filter(([key]) => key !== "visitors" || GOATCOUNTER_CODE)
+          .map(([key, icon, suffix], i) => {
+            const card = el("article", "kpi glass spot");
+            card.dataset.reveal = "";
+            card.style.setProperty("--i", i % 4);
+            const ic = el("span", "kpi-icon");
+            ic.innerHTML = ICONS[icon];
+            const value = el("strong", "kpi-value");
+            const num = el("span", "", stats[key] === null ? "–" : "0");
+            num.dataset.count = key;
+            value.append(num);
+            if (suffix) value.append(suffix);
+            card.append(ic, value, el("span", "kpi-label", data.kpis[key]));
+            return card;
+          }));
+      }
+
+      function renderFacts(data) {
         const list = document.getElementById("profile-list");
-        clear(list);
-        data.profileFacts.forEach(([label, value, href]) => {
-          const wrapper = document.createElement("div");
-          const dt = document.createElement("dt");
-          const dd = document.createElement("dd");
-          dt.textContent = label;
-          if (href) {
-            dd.appendChild(link(value, href));
-          } else {
-            dd.textContent = value;
-          }
-          wrapper.append(dt, dd);
-          list.appendChild(wrapper);
-        });
+        list.replaceChildren(...data.profileFacts.map(([label, value, href]) => {
+          const row = el("div");
+          const dd = el("dd");
+          if (href) dd.append(externalLink(value, href));
+          else dd.textContent = value;
+          row.append(el("dt", "", label), dd);
+          return row;
+        }));
       }
 
-      function renderImpacts(data) {
-        const strip = document.getElementById("impact-strip");
-        clear(strip);
-        data.impacts.forEach(([number, label]) => {
-          const item = document.createElement("div");
-          item.innerHTML = `<strong>${number}</strong><span>${label}</span>`;
-          strip.appendChild(item);
-        });
+      function timelineItem(date, title, org, details, i) {
+        const li = el("li", "timeline-item");
+        li.dataset.reveal = "";
+        li.style.setProperty("--i", i);
+        const card = el("div", "timeline-card glass spot");
+        card.append(el("p", "timeline-date", date.replace(" - ", " – ")), el("h4", "", title), el("p", "org", org));
+        if (Array.isArray(details)) {
+          const ul = el("ul", "bullets");
+          details.forEach((text) => ul.append(el("li", "", text)));
+          card.append(ul);
+        } else if (details) {
+          card.append(el("p", "", details));
+        }
+        li.append(card);
+        return li;
       }
 
-      function renderExperience(data) {
-        const container = document.getElementById("experience-content");
-        clear(container);
-        const article = document.createElement("article");
-        article.className = "timeline-item featured";
-        article.innerHTML = `
-          <div class="timeline-date">${data.experience.date}<span>${data.experience.location}</span></div>
-          <div>
-            <h3>${data.experience.title}</h3>
-            <p class="meta">${data.experience.company}</p>
-            <ul class="feature-list"></ul>
-          </div>
-        `;
-        const list = article.querySelector("ul");
-        data.experience.bullets.forEach((text) => {
-          const li = document.createElement("li");
-          li.textContent = text;
-          list.appendChild(li);
-        });
-        container.appendChild(article);
+      function renderJourney(data) {
+        const e = data.experience;
+        document.getElementById("experience-content").replaceChildren(
+          timelineItem(e.date, e.title, `${e.company} · ${e.location}`, e.bullets, 0)
+        );
+        document.getElementById("education-content").replaceChildren(...data.education.map((ed, i) =>
+          timelineItem(ed.date, ed.title, ed.org, ed.body, i)
+        ));
       }
 
-      function renderStack(id, items) {
-        const container = document.getElementById(id);
-        clear(container);
-        items.forEach((item) => {
-          const article = document.createElement("article");
-          article.className = "stack-item";
-          if (Array.isArray(item)) {
-            article.innerHTML = `<h3>${item[0]}</h3><p>${item[1]}</p>`;
-          } else {
-            article.innerHTML = `
-              <p class="meta">${item.date} · ${item.location}</p>
-              <h3>${item.title}</h3>
-              <p class="org">${item.org}</p>
-              <p>${item.body}</p>
-            `;
-          }
-          container.appendChild(article);
-        });
-      }
-
-      function renderLanguages(data) {
-        const container = document.getElementById("languages-content");
-        clear(container);
-        const mother = document.createElement("p");
-        mother.className = "mother-tongue";
-        mother.textContent = data.languages.motherTongue;
-        const table = document.createElement("table");
-        table.className = "language-table";
-        const thead = document.createElement("thead");
-        thead.innerHTML = `<tr>${data.languages.headers.map((h) => `<th>${h}</th>`).join("")}</tr>`;
-        const tbody = document.createElement("tbody");
-        data.languages.rows.forEach((row) => {
-          tbody.innerHTML += `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`;
-        });
-        table.append(thead, tbody);
-        container.append(mother, table);
-      }
-
-      function renderSkills(data) {
-        const container = document.getElementById("skills-content");
-        clear(container);
-        data.skillGroups.forEach(([title, skills]) => {
-          const group = document.createElement("article");
-          group.className = "skill-group";
-          group.innerHTML = `<h3>${title}</h3><div class="skills"></div>`;
-          const skillList = group.querySelector(".skills");
-          skills.forEach((skill) => {
-            const span = document.createElement("span");
-            span.textContent = skill;
-            skillList.appendChild(span);
+      function renderFilters(id, options, onChange) {
+        const bar = document.getElementById(id);
+        bar.replaceChildren(...options.map(([key, label], i) => {
+          const b = el("button", "filter" + (i === 0 ? " active" : ""), label);
+          b.type = "button";
+          b.setAttribute("role", "tab");
+          b.setAttribute("aria-selected", i === 0 ? "true" : "false");
+          b.addEventListener("click", () => {
+            bar.querySelectorAll(".filter").forEach((x) => {
+              x.classList.toggle("active", x === b);
+              x.setAttribute("aria-selected", x === b ? "true" : "false");
+            });
+            onChange(key);
           });
-          container.appendChild(group);
+          return b;
+        }));
+      }
+
+      function applyFilter(containerId, key) {
+        document.querySelectorAll(`#${containerId} > *`).forEach((item) => {
+          const show = key === "all" || item.dataset.group === key;
+          item.classList.toggle("is-hidden", !show);
         });
       }
 
-      function renderProjects(data) {
+      function renderProjects(data, lang) {
         const container = document.getElementById("projects-content");
-        clear(container);
-        data.projects.forEach(([title, date, body, programme, url]) => {
-          const article = document.createElement("article");
-          article.className = "project-card";
+        container.replaceChildren(...sortedProjects.map((project, i) => {
+          const ongoing = isOngoing(project);
+          const card = el("article", "project-card glass spot tilt");
+          card.dataset.reveal = "";
+          card.dataset.group = ongoing ? "ongoing" : "completed";
+          card.style.setProperty("--i", i % 3);
 
-          const meta = document.createElement("p");
-          meta.className = "meta";
-          meta.textContent = programme ? `${date} · ${programme}` : date;
+          const top = el("div", "project-top");
+          top.append(
+            el("span", "status " + (ongoing ? "is-ongoing" : "is-done"), ongoing ? data.ongoing : data.completed),
+            el("span", "programme", project.programme || "")
+          );
 
-          const heading = document.createElement("h3");
-          if (url) {
-            const a = document.createElement("a");
-            a.href = url;
-            a.target = "_blank";
-            a.rel = "noopener";
-            a.textContent = title;
-            heading.append(a);
+          const h3 = el("h3");
+          if (project.url) {
+            const a = externalLink(project.name, project.url);
+            a.insertAdjacentHTML("beforeend", ICONS.external);
+            h3.append(a);
           } else {
-            heading.textContent = title;
+            h3.textContent = project.name;
           }
 
-          const description = document.createElement("p");
-          description.textContent = body;
-
-          article.append(meta, heading, description);
-          container.appendChild(article);
-        });
+          const dates = el("p", "project-dates", `${project.start} – ${project.end || data.ongoing}`);
+          card.append(top, h3, dates, el("p", "project-desc", project.description[lang]));
+          return card;
+        }));
+        renderFilters("project-filters", data.projectFilters, (key) => applyFilter("projects-content", key));
       }
 
       function renderPublications(data) {
         const container = document.getElementById("publications-content");
-        clear(container);
-        data.publications.forEach((pub) => {
-          const li = document.createElement("li");
+        container.replaceChildren(...sortedPublications.map((pub, i) => {
+          const li = el("li", "publication glass spot");
+          li.dataset.reveal = "";
+          li.dataset.group = pub.type;
+          li.style.setProperty("--i", i % 4);
 
-          // Authors, with your own name in bold.
-          let last = 0;
-          for (const match of pub.authors.matchAll(OWN_NAME)) {
-            li.append(pub.authors.slice(last, match.index));
-            const strong = document.createElement("strong");
-            strong.textContent = match[0];
-            li.append(strong);
-            last = match.index + match[0].length;
-          }
-          li.append(pub.authors.slice(last), ", “");
+          const side = el("div", "pub-side");
+          side.append(el("span", "pub-year", String(pub.year)), el("span", "pub-type type-" + pub.type, data.types[pub.type] || pub.type));
 
-          // Title, linked to the DOI (or url) when there is one.
+          const body = el("div", "pub-body");
+          const title = el("h3", "pub-title");
           const href = publicationLink(pub);
           if (href) {
-            const a = document.createElement("a");
-            a.href = href;
-            a.target = "_blank";
-            a.rel = "noopener";
-            a.textContent = pub.title;
-            li.append(a);
+            const a = externalLink(pub.title, href);
+            a.insertAdjacentHTML("beforeend", ICONS.external);
+            title.append(a);
           } else {
-            li.append(pub.title);
+            title.textContent = pub.title;
           }
 
-          li.append(`”, ${publicationDetails(pub)}.`);
-          container.appendChild(li);
-        });
+          // Authors, with your own name highlighted.
+          const authors = el("p", "pub-authors");
+          let last = 0;
+          for (const match of pub.authors.matchAll(OWN_NAME)) {
+            authors.append(pub.authors.slice(last, match.index), el("strong", "", match[0]));
+            last = match.index + match[0].length;
+          }
+          authors.append(pub.authors.slice(last));
+
+          const venue = [pub.venue];
+          if (pub.pages) venue.push(pub.pages);
+          venue.push(pub.month ? `${pub.month} ${pub.year}` : String(pub.year));
+          body.append(title, authors, el("p", "pub-venue", venue.join(", ")));
+
+          li.append(side, body);
+          return li;
+        }));
+        renderFilters("publication-filters", data.publicationFilters, (key) => applyFilter("publications-content", key));
       }
 
-      function renderContact(data) {
-        const container = document.getElementById("contact-links");
-        clear(container);
-        data.contactLinks.forEach(([aria, label, href]) => {
-          const anchor = link(label, href);
-          anchor.setAttribute("aria-label", aria);
-          container.appendChild(anchor);
+      function renderSkills(data) {
+        const all = data.skillGroups.flatMap(([, items]) => items);
+        const track = document.getElementById("skills-marquee");
+        // Two copies so the loop is seamless.
+        track.replaceChildren(...[...all, ...all].map((s) => el("span", "", s)));
+
+        document.getElementById("skills-content").replaceChildren(...data.skillGroups.map(([title, items], i) => {
+          const group = el("article", "skill-group glass spot");
+          group.dataset.reveal = "";
+          group.style.setProperty("--i", i % 3);
+          const chips = el("div", "chips");
+          items.forEach((s) => chips.append(el("span", "chip", s)));
+          group.append(el("h3", "", title), chips);
+          return group;
+        }));
+      }
+
+      function renderCredentials(data) {
+        const L = data.languages;
+        const wrap = document.getElementById("languages-content");
+        const table = el("table", "language-table");
+        const head = el("tr");
+        L.headers.forEach((h) => head.append(el("th", "", h)));
+        const thead = el("thead");
+        thead.append(head);
+        const tbody = el("tbody");
+        L.rows.forEach((row) => {
+          const tr = el("tr");
+          row.forEach((cell, i) => tr.append(el(i ? "td" : "th", i ? "level" : "", cell)));
+          tbody.append(tr);
         });
+        table.append(thead, tbody);
+        const scroller = el("div", "table-scroll");
+        scroller.append(table);
+        wrap.replaceChildren(el("p", "mother-tongue", L.motherTongue), scroller);
+
+        document.getElementById("certifications-content").replaceChildren(...data.certifications.map(([title, detail]) => {
+          const li = el("li");
+          li.append(el("strong", "", title), el("span", "", detail));
+          return li;
+        }));
+      }
+
+      function renderContactLinks(data) {
+        const items = [
+          [data.contactLinks.email, links.email, "email"],
+          [data.contactLinks.linkedIn, links.linkedIn, "linkedin"],
+          [data.contactLinks.orcid, links.orcid, "orcid"],
+          [data.contactLinks.cv, data.cvHref, "doc", true]
+        ];
+        document.getElementById("contact-links").replaceChildren(...items.map(([label, href, icon, primary]) => {
+          const a = externalLink("", href, "contact-link" + (primary ? " primary" : ""));
+          a.innerHTML = ICONS[icon];
+          a.append(el("span", "", label));
+          return a;
+        }));
       }
 
       function setLanguage(lang) {
@@ -536,60 +734,345 @@
         document.title = data.pageTitle;
 
         renderNav(data);
-        renderProfile(data);
-        renderImpacts(data);
-
-        setText("hero-label", data.heroLabel);
-        setText("hero-text", data.heroText);
-        setText("contact-action", data.contactAction);
-        setText("profile-label", data.profileLabel);
-        setText("profile-title", data.profileTitle);
-        setText("profile-text", data.profileText);
-
-        const cvAction = document.getElementById("cv-action");
-        cvAction.textContent = data.cvAction;
-        cvAction.href = data.cvHref;
-
-        setText("experience-label", data.sections.experience[0]);
-        setText("experience-title", data.sections.experience[1]);
-        setText("education-label", data.sections.education[0]);
-        setText("education-title", data.sections.education[1]);
-        setText("certifications-label", data.sections.certifications[0]);
-        setText("certifications-title", data.sections.certifications[1]);
-        setText("languages-label", data.sections.languages[0]);
-        setText("languages-title", data.sections.languages[1]);
-        setText("skills-label", data.sections.skills[0]);
-        setText("skills-title", data.sections.skills[1]);
-        setText("projects-label", data.sections.projects[0]);
-        setText("projects-title", data.sections.projects[1]);
-        setText("projects-intro", data.projectsIntro);
-        setText("publications-label", data.sections.publications[0]);
-        setText("publications-title", data.sections.publications[1]);
-        setText("publications-intro", data.publicationsIntro);
-        setText("contact-label", data.sections.contact[0]);
-        setText("contact-title", data.sections.contact[1]);
-        setText("contact-text", data.contactText);
-        setText("footer-text", data.footer.replace("{year}", new Date().getFullYear()));
-
-        renderExperience(data);
-        renderStack("education-content", data.education);
-        renderStack("certifications-content", data.certifications);
-        renderLanguages(data);
-        renderSkills(data);
-        renderProjects(data);
+        renderKpis(data);
+        renderFacts(data);
+        renderJourney(data);
+        renderProjects(data, lang);
         renderPublications(data);
-        renderContact(data);
+        renderSkills(data);
+        renderCredentials(data);
+
+        const resume = document.getElementById("resume-action");
+        resume.textContent = data.resume;
+        resume.href = data.cvHref;
+
+        setText("hero-hello", data.hello);
+        setText("hero-intro", data.intro + " ");
+        setText("hero-name", data.name);
+        setText("hero-text", data.heroText);
+        setText("discover-action", data.discover);
+        setText("follow-label", data.follow);
+        setText("float-publications", data.float.publications);
+        setText("float-projects", data.float.projects);
+        setText("float-years", data.float.years);
+
+        setText("numbers-label", data.numbersLabel);
+        setText("numbers-title", data.numbersTitle);
+        setText("about-label", data.aboutLabel);
+        setText("about-title", data.aboutTitle);
+        setText("profile-text", data.profileText);
+        setText("experience-label", data.experienceLabel);
+        setText("experience-title", data.experienceTitle);
+        setText("work-column", data.workColumn);
+        setText("education-column", data.educationColumn);
+        setText("projects-label", data.projectsLabel);
+        setText("projects-title", data.projectsTitle);
+        setText("projects-intro", data.projectsIntro);
+        setText("publications-label", data.publicationsLabel);
+        setText("publications-title", data.publicationsTitle);
+        setText("publications-intro", data.publicationsIntro + " ");
+        document.getElementById("scholar-link").href = links.scholar;
+        setText("skills-label", data.skillsLabel);
+        setText("skills-title", data.skillsTitle);
+        setText("credentials-label", data.credentialsLabel);
+        setText("credentials-title", data.credentialsTitle);
+        setText("languages-column", data.languagesColumn);
+        setText("certifications-column", data.certificationsColumn);
+        setText("contact-label", data.contactLabel);
+        renderContactLinks(data);
+
+        setText("footer-text", data.footer.replace("{year}", today.getFullYear()));
+        updateVisits();
 
         document.querySelectorAll(".lang-button").forEach((button) => {
           button.classList.toggle("active", button.dataset.lang === lang);
         });
+        currentLang = lang;
+        try { localStorage.setItem("lang", lang); } catch (e) {}
+
+        typeRoles(data.roles);
+        observeReveals();
+        bindSpotlights();
       }
 
+      // ------------------------------------------------------------------
+      // Motion
+      // ------------------------------------------------------------------
+
+      // Reveal elements as they scroll into view, then count numbers up.
+      const counted = new WeakSet();
+      const revealObserver = "IntersectionObserver" in window
+        ? new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              entry.target.querySelectorAll("[data-count]").forEach(countUp);
+              revealObserver.unobserve(entry.target);
+            });
+          }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" })
+        : null;
+
+      function observeReveals() {
+        document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach((node) => {
+          if (revealObserver && !prefersReducedMotion) revealObserver.observe(node);
+          else {
+            node.classList.add("is-visible");
+            node.querySelectorAll("[data-count]").forEach(countUp);
+          }
+        });
+        // The hero cards are inside an already-visible block on language switch.
+        document.querySelectorAll(".is-visible [data-count]").forEach(countUp);
+      }
+
+      function countUp(node) {
+        const target = stats[node.dataset.count];
+        if (target === null || target === undefined) return;
+        if (counted.has(node) && node.dataset.done === String(target)) {
+          node.textContent = target.toLocaleString();
+          return;
+        }
+        counted.add(node);
+        node.dataset.done = String(target);
+        if (prefersReducedMotion) {
+          node.textContent = target.toLocaleString();
+          return;
+        }
+        const duration = 1600;
+        const start = performance.now();
+        const step = (now) => {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          node.textContent = Math.round(target * eased).toLocaleString();
+          if (t < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+
+      // Typewriter effect for the role line.
+      let typeTimer = null;
+      function typeRoles(roles) {
+        const target = document.getElementById("hero-role");
+        clearTimeout(typeTimer);
+        if (prefersReducedMotion) {
+          target.textContent = roles[0];
+          return;
+        }
+        let roleIndex = 0, charIndex = 0, deleting = false;
+        const tick = () => {
+          const word = roles[roleIndex];
+          charIndex += deleting ? -1 : 1;
+          target.textContent = word.slice(0, charIndex);
+          let delay = deleting ? 35 : 70;
+          if (!deleting && charIndex === word.length) { deleting = true; delay = 1800; }
+          else if (deleting && charIndex === 0) { deleting = false; roleIndex = (roleIndex + 1) % roles.length; delay = 350; }
+          typeTimer = setTimeout(tick, delay);
+        };
+        tick();
+      }
+
+      // Cards light up where the pointer is; project cards tilt slightly.
+      function bindSpotlights() {
+        document.querySelectorAll(".spot:not([data-bound])").forEach((card) => {
+          card.dataset.bound = "";
+          card.addEventListener("pointermove", (e) => {
+            const r = card.getBoundingClientRect();
+            const x = e.clientX - r.left, y = e.clientY - r.top;
+            card.style.setProperty("--mx", `${x}px`);
+            card.style.setProperty("--my", `${y}px`);
+            if (card.classList.contains("tilt") && !prefersReducedMotion) {
+              const rx = ((y / r.height) - 0.5) * -6;
+              const ry = ((x / r.width) - 0.5) * 6;
+              card.style.setProperty("--rx", `${rx}deg`);
+              card.style.setProperty("--ry", `${ry}deg`);
+            }
+          });
+          card.addEventListener("pointerleave", () => {
+            card.style.setProperty("--rx", "0deg");
+            card.style.setProperty("--ry", "0deg");
+          });
+        });
+      }
+
+      // Hero parallax: floating cards drift with the pointer.
+      const heroVisual = document.getElementById("hero-visual");
+      if (!prefersReducedMotion) {
+        heroVisual.addEventListener("pointermove", (e) => {
+          const r = heroVisual.getBoundingClientRect();
+          const dx = (e.clientX - r.left) / r.width - 0.5;
+          const dy = (e.clientY - r.top) / r.height - 0.5;
+          heroVisual.querySelectorAll("[data-depth]").forEach((card) => {
+            const d = Number(card.dataset.depth);
+            card.style.setProperty("--px", `${dx * d}px`);
+            card.style.setProperty("--py", `${dy * d}px`);
+          });
+        });
+        heroVisual.addEventListener("pointerleave", () => {
+          heroVisual.querySelectorAll("[data-depth]").forEach((card) => {
+            card.style.setProperty("--px", "0px");
+            card.style.setProperty("--py", "0px");
+          });
+        });
+      }
+
+      // Header style, scroll progress bar and active nav link.
+      const header = document.getElementById("site-header");
+      const progress = document.getElementById("scroll-progress");
+      function onScroll() {
+        const max = document.documentElement.scrollHeight - innerHeight;
+        progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+        header.classList.toggle("scrolled", scrollY > 20);
+        let active = "";
+        document.querySelectorAll("main section[id]").forEach((s) => {
+          if (s.getBoundingClientRect().top < innerHeight * 0.35) active = s.id;
+        });
+        document.querySelectorAll("#nav a").forEach((a) => {
+          a.classList.toggle("active", a.dataset.target === active);
+        });
+      }
+      addEventListener("scroll", onScroll, { passive: true });
+
+      // Mobile menu.
+      const menuButton = document.getElementById("menu-toggle");
+      menuButton.addEventListener("click", () => {
+        const open = header.classList.toggle("nav-open");
+        menuButton.setAttribute("aria-expanded", String(open));
+      });
+      document.getElementById("nav").addEventListener("click", (e) => {
+        if (e.target.closest("a")) {
+          header.classList.remove("nav-open");
+          menuButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // Theme toggle (dark / light), remembered per visitor.
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem("theme", next); } catch (e) {}
+        network.recolor();
+      });
+
+      // Animated network background (nodes and links, reacting to the pointer).
+      const network = (() => {
+        const canvas = document.getElementById("bg-network");
+        const ctx = canvas.getContext("2d");
+        let w = 0, h = 0, dpr = 1, nodes = [], color = "139, 92, 246", running = true;
+        const pointer = { x: -9999, y: -9999 };
+
+        function recolor() {
+          const v = getComputedStyle(document.documentElement).getPropertyValue("--network-rgb").trim();
+          if (v) color = v;
+          if (prefersReducedMotion) draw();
+        }
+
+        function resize() {
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          w = canvas.width = innerWidth * dpr;
+          h = canvas.height = innerHeight * dpr;
+          canvas.style.width = innerWidth + "px";
+          canvas.style.height = innerHeight + "px";
+          const count = Math.round(Math.min(90, (innerWidth * innerHeight) / 16000));
+          nodes = Array.from({ length: count }, () => ({
+            x: Math.random() * w, y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.25 * dpr, vy: (Math.random() - 0.5) * 0.25 * dpr,
+            r: (Math.random() * 1.4 + 0.6) * dpr
+          }));
+          if (prefersReducedMotion) draw();
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, w, h);
+          const linkDist = 140 * dpr;
+          for (let i = 0; i < nodes.length; i++) {
+            const a = nodes[i];
+            for (let j = i + 1; j < nodes.length; j++) {
+              const b = nodes[j];
+              const dx = a.x - b.x, dy = a.y - b.y;
+              const d = Math.hypot(dx, dy);
+              if (d < linkDist) {
+                ctx.strokeStyle = `rgba(${color}, ${0.16 * (1 - d / linkDist)})`;
+                ctx.lineWidth = dpr * 0.8;
+                ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+              }
+            }
+            const pd = Math.hypot(a.x - pointer.x, a.y - pointer.y);
+            if (pd < 180 * dpr) {
+              ctx.strokeStyle = `rgba(${color}, ${0.35 * (1 - pd / (180 * dpr))})`;
+              ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(pointer.x, pointer.y); ctx.stroke();
+            }
+            ctx.fillStyle = `rgba(${color}, 0.55)`;
+            ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
+          }
+        }
+
+        function loop() {
+          if (!running) return;
+          for (const n of nodes) {
+            n.x += n.vx; n.y += n.vy;
+            if (n.x < 0 || n.x > w) n.vx *= -1;
+            if (n.y < 0 || n.y > h) n.vy *= -1;
+          }
+          draw();
+          requestAnimationFrame(loop);
+        }
+
+        addEventListener("resize", resize);
+        addEventListener("pointermove", (e) => { pointer.x = e.clientX * dpr; pointer.y = e.clientY * dpr; }, { passive: true });
+        document.addEventListener("visibilitychange", () => {
+          running = !document.hidden && !prefersReducedMotion;
+          if (running) loop();
+        });
+        recolor();
+        resize();
+        if (prefersReducedMotion) { running = false; draw(); } else loop();
+        return { recolor };
+      })();
+
+      // ------------------------------------------------------------------
+      // Visitor counter (GoatCounter, optional)
+      // ------------------------------------------------------------------
+
+      let currentLang = "en";
+      function updateVisits() {
+        const node = document.getElementById("footer-visits");
+        if (stats.visitors === null) { node.hidden = true; return; }
+        node.hidden = false;
+        node.textContent = content[currentLang].visits.replace("{n}", stats.visitors.toLocaleString());
+      }
+
+      if (GOATCOUNTER_CODE) {
+        const endpoint = `https://${GOATCOUNTER_CODE}.goatcounter.com`;
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = "https://gc.zgo.at/count.js";
+        script.dataset.goatcounter = `${endpoint}/count`;
+        document.head.append(script);
+        fetch(`${endpoint}/counter/TOTAL.json`)
+          .then((r) => (r.ok ? r.json() : null))
+          .then((json) => {
+            if (!json) return;
+            stats.visitors = Number(String(json.count).replace(/[^\d]/g, "")) || 0;
+            document.querySelectorAll('[data-count="visitors"]').forEach((n) => {
+              counted.delete(n);
+              if (n.closest(".is-visible")) countUp(n);
+            });
+            updateVisits();
+          })
+          .catch(() => {});
+      }
+
+      // ------------------------------------------------------------------
+      // Start
+      // ------------------------------------------------------------------
+
+      renderSocial("social-links");
       document.querySelectorAll(".lang-button").forEach((button) => {
         button.addEventListener("click", () => setLanguage(button.dataset.lang));
       });
-
-      setLanguage("en");
+      let startLang = "en";
+      try { if (localStorage.getItem("lang") === "el") startLang = "el"; } catch (e) {}
+      setLanguage(startLang);
+      onScroll();
     </script>
   </body>
 </html>

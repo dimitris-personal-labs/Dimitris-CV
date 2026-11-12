@@ -83,6 +83,21 @@ them as PDF. Without `--pdf` it only writes the Word files. Then commit and push
 together with your data changes. Don't edit the files in `assets/` by hand:
 the next build overwrites them.
 
+## Visitor counter (optional)
+
+The site can show how many people have visited it, using
+[GoatCounter](https://www.goatcounter.com): free, no cookies, so no consent
+banner is needed.
+
+1. Create an account at goatcounter.com and pick a site code, e.g. `dasimopoulos`.
+2. In GoatCounter go to *Settings* and tick **"Allow adding visitor counts on
+   your website"**.
+3. In `index.html`, set `const GOATCOUNTER_CODE = "dasimopoulos";` (your code).
+4. Commit and push.
+
+A "Visitors to this site" number then appears in the KPI section and the
+footer. While the code is empty, the counter stays hidden.
+
 ## Preview locally
 
 Open `index.html` directly in a browser.

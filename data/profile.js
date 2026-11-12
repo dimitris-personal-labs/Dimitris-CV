@@ -3,9 +3,10 @@
 window.CV_PROFILE = {
   contact: {
     name: { en: "Dimitrios Christos Asimopoulos", el: "Δημήτριος Χρήστος Ασημόπουλος" },
-    role: { en: "AI Researcher / Electrical Engineer", el: "Ερευνητής Τεχνητής Νοημοσύνης / Ηλεκτρολόγος Μηχανικός" },
+    role: { en: "Electrical & Computer Engineer / AI Researcher", el: "Ηλεκτρολόγος Μηχανικός & Μηχανικός Υπολογιστών / Ερευνητής Τεχνητής Νοημοσύνης" },
     location: { en: "Thessaloniki, Greece", el: "Θεσσαλονίκη, Ελλάδα" },
     email: "dasimopoulos@metamind.gr",
+    emailPersonal: "asimopou@icloud.com",
     phone: "+30 698 310 1663",
     linkedIn: "https://www.linkedin.com/in/dimitris-christos-asimopoulos-2a627a262/",
     scholar: "https://scholar.google.com/citations?user=HO6cbW8AAAAJ&hl=el",
@@ -13,8 +14,8 @@ window.CV_PROFILE = {
   },
   en: {
     // Short summary at the top of the CV. {publications} is replaced with the current count.
-    cvSummary: "AI researcher and Electrical & Computer Engineer with R&D experience since 2022 in EU-funded Horizon 2020, Horizon Europe and Digital Europe projects. Ph.D. candidate at the International Hellenic University, researching the security, privacy and ethics of AI in IoT systems. Specialised in adversarial machine learning, AI-enabled intrusion detection, generative models and text anonymisation, with {publications} peer-reviewed publications in IEEE, ACM, Elsevier and AIP venues.",
-    profileText: "Dimitris Asimopoulos received his BSc and Integrated Master's degrees in Electrical and Computer Engineering from the University of Western Macedonia (UOWM) (September 2016 - June 2022). He is currently a Ph.D. candidate at the Department of Information and Electronic Engineering of the International Hellenic University (IHU), conducting research in the field of “AI in IoT systems: Security, Privacy, Ethical Challenges & Solutions,” further expanding his expertise in cutting-edge AI trends. Dimitris's interests encompass Machine Learning techniques, Artificial Intelligence, and Generative Adversarial Networks, applied in various domains. Presently, he serves as an AI Researcher and Electrical Engineer at MetaMind Innovations in Thessaloniki, where he actively contributes to the development and research of European Horizon projects. His work primarily focuses on big data processing and cybersecurity, including the prevention, detection, and response to cyberattacks.",
+    cvSummary: "AI researcher and Electrical & Computer Engineer with R&D experience since 2022 in EU-funded Horizon 2020, Horizon Europe and Digital Europe projects. PhD candidate at the International Hellenic University, researching the security, privacy and ethics of AI in IoT systems. Specialised in adversarial machine learning, AI-enabled intrusion detection, generative models and text anonymisation, with {publications} peer-reviewed publications in IEEE, ACM, Elsevier and AIP venues.",
+    profileText: "Dimitris Asimopoulos received his BSc and Integrated Master's degrees in Electrical and Computer Engineering from the University of Western Macedonia (UOWM) (September 2016 - June 2022). He is currently a PhD candidate at the Department of Information and Electronic Engineering of the International Hellenic University (IHU), conducting research in the field of “AI in IoT systems: Security, Privacy, Ethical Challenges & Solutions,” further expanding his expertise in cutting-edge AI trends. Dimitris's interests encompass Machine Learning techniques, Artificial Intelligence, and Generative Adversarial Networks, applied in various domains. Presently, he serves as an AI Researcher and Electrical Engineer at MetaMind Innovations in Thessaloniki, where he actively contributes to the development and research of European Horizon projects. His work primarily focuses on big data processing and cybersecurity, including the prevention, detection, and response to cyberattacks.",
     experience: {
       date: "08/2022 - Current",
       location: "Greece",
@@ -32,7 +33,7 @@ window.CV_PROFILE = {
       {
         date: "Current",
         location: "Greece",
-        title: "Ph.D. Candidate",
+        title: "PhD Candidate",
         org: "International Hellenic University (IHU), Department of Information and Electronic Engineering",
         body: "Proposed dissertation title: “AI in IoT Systems: Security, Privacy, Ethical Challenges & Solutions”."
       },

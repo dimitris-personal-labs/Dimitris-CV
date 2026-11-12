@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Dimitrios Christos Asimopoulos – AI Researcher, Ph.D. candidate and Electrical & Computer Engineer. Publications, EU research projects and CV."
+      content="Dimitrios Christos Asimopoulos – AI Researcher, PhD candidate and Electrical & Computer Engineer. Publications, EU research projects and CV."
     />
     <meta name="theme-color" content="#07060b" />
     <title>Dimitrios Christos Asimopoulos | AI Researcher</title>
@@ -192,21 +192,14 @@
         <div class="skill-groups" id="skills-content"></div>
       </section>
 
-      <!-- LANGUAGES + CERTIFICATIONS -->
-      <section class="section" id="credentials">
+      <!-- CERTIFICATIONS -->
+      <section class="section" id="certifications">
         <div class="section-heading" data-reveal>
-          <p class="section-label"><span class="kicker">06</span><span id="credentials-label"></span></p>
-          <h2 id="credentials-title"></h2>
+          <p class="section-label"><span class="kicker">06</span><span id="certifications-label"></span></p>
+          <h2 id="certifications-title"></h2>
         </div>
-        <div class="credentials-grid">
-          <div class="glass panel" data-reveal>
-            <h3 class="column-title" id="languages-column"></h3>
-            <div id="languages-content"></div>
-          </div>
-          <div class="glass panel" data-reveal style="--i: 1">
-            <h3 class="column-title" id="certifications-column"></h3>
-            <ul class="cert-list" id="certifications-content"></ul>
-          </div>
+        <div class="glass panel" data-reveal>
+          <ul class="cert-list" id="certifications-content"></ul>
         </div>
       </section>
 
@@ -214,7 +207,21 @@
       <section class="contact" id="contact">
         <div class="contact-card" data-reveal>
           <p class="section-label" id="contact-label"></p>
-          <div class="contact-links" id="contact-links"></div>
+          <div class="contact-orbit">
+            <div class="orbit-ring ring-outer"></div>
+            <div class="orbit-ring ring-dashed"></div>
+            <div class="orbit-glow"></div>
+            <div class="contact-disc"></div>
+            <img
+              class="contact-photo"
+              src="assets/dimitrios-asimopoulos-photo.jpg"
+              alt=""
+              width="900"
+              height="900"
+              loading="lazy"
+            />
+            <div class="contact-links" id="contact-links"></div>
+          </div>
         </div>
       </section>
     </main>
@@ -241,6 +248,7 @@
 
       const links = {
         email: "mailto:dasimopoulos@metamind.gr",
+        emailPersonal: "mailto:asimopou@icloud.com",
         linkedIn: "https://www.linkedin.com/in/dimitris-christos-asimopoulos-2a627a262/",
         scholar: "https://scholar.google.com/citations?user=HO6cbW8AAAAJ&hl=el",
         orcid: "https://orcid.org/0009-0009-6439-0857",
@@ -322,7 +330,7 @@
           hello: "Hello,",
           intro: "I’m",
           name: "Dimitrios Asimopoulos",
-          roles: ["AI Researcher", "Ph.D. Candidate", "Electrical & Computer Engineer", "Adversarial ML Researcher"],
+          roles: ["AI Researcher", "PhD Candidate", "Electrical & Computer Engineer", "Adversarial ML Researcher"],
           heroText: "Researching trustworthy AI for IoT systems and critical infrastructure – security, privacy, ethical challenges and solutions.",
           discover: "Discover more",
           follow: "Follow me:",
@@ -351,10 +359,11 @@
           aboutTitle: "Professional summary",
           ...window.CV_PROFILE.en,
           profileFacts: [
-            ["Role", "AI Researcher / Electrical Engineer"],
-            ["Ph.D.", "International Hellenic University"],
+            ["Role", "Electrical & Computer Engineer / AI Researcher"],
+            ["PhD", "International Hellenic University"],
             ["Location", "Thessaloniki, Greece"],
-            ["Email", "dasimopoulos@metamind.gr", links.email],
+            ["Email (work)", "dasimopoulos@metamind.gr", links.email],
+            ["Email (personal)", "asimopou@icloud.com", links.emailPersonal],
             ["ORCID", "0009-0009-6439-0857", links.orcid]
           ],
           experienceLabel: "Journey",
@@ -374,12 +383,16 @@
           types: { journal: "Journal", conference: "Conference", preprint: "Preprint" },
           skillsLabel: "Skills",
           skillsTitle: "Technical toolkit",
-          credentialsLabel: "Credentials",
-          credentialsTitle: "Languages & certifications",
-          languagesColumn: "Languages",
-          certificationsColumn: "Certifications",
+          certificationsLabel: "Certifications",
+          certificationsTitle: "Additional training",
           contactLabel: "Contact",
-          contactLinks: { email: "Email", linkedIn: "LinkedIn", orcid: "ORCID", cv: "Download CV" },
+          contactLinks: {
+            work: ["Work email", "Work"],
+            personal: ["Personal email", "Personal"],
+            linkedIn: ["LinkedIn", "LinkedIn"],
+            orcid: ["ORCID", "ORCID"],
+            cv: ["Download CV", "CV"]
+          },
           footer: "© {year} Dimitrios Christos Asimopoulos.",
           visits: "{n} visits since launch"
         },
@@ -426,10 +439,11 @@
           aboutTitle: "Επαγγελματική περίληψη",
           ...window.CV_PROFILE.el,
           profileFacts: [
-            ["Ρόλος", "Ερευνητής Τεχνητής Νοημοσύνης / Ηλεκτρολόγος Μηχανικός"],
+            ["Ρόλος", "Ηλεκτρολόγος Μηχανικός & Μηχανικός Υπολογιστών / Ερευνητής Τεχνητής Νοημοσύνης"],
             ["Διδακτορικό", "Διεθνές Πανεπιστήμιο της Ελλάδος"],
             ["Τοποθεσία", "Θεσσαλονίκη, Ελλάδα"],
-            ["Email", "dasimopoulos@metamind.gr", links.email],
+            ["Email (εργασία)", "dasimopoulos@metamind.gr", links.email],
+            ["Email (προσωπικό)", "asimopou@icloud.com", links.emailPersonal],
             ["ORCID", "0009-0009-6439-0857", links.orcid]
           ],
           experienceLabel: "Πορεία",
@@ -449,12 +463,16 @@
           types: { journal: "Περιοδικό", conference: "Συνέδριο", preprint: "Προδημοσίευση" },
           skillsLabel: "Δεξιότητες",
           skillsTitle: "Τεχνικό υπόβαθρο",
-          credentialsLabel: "Προσόντα",
-          credentialsTitle: "Γλώσσες & πιστοποιήσεις",
-          languagesColumn: "Γλώσσες",
-          certificationsColumn: "Πιστοποιήσεις",
+          certificationsLabel: "Πιστοποιήσεις",
+          certificationsTitle: "Πρόσθετη κατάρτιση",
           contactLabel: "Επικοινωνία",
-          contactLinks: { email: "Email", linkedIn: "LinkedIn", orcid: "ORCID", cv: "Λήψη βιογραφικού" },
+          contactLinks: {
+            work: ["Email εργασίας", "Εργασία"],
+            personal: ["Προσωπικό email", "Προσωπικό"],
+            linkedIn: ["LinkedIn", "LinkedIn"],
+            orcid: ["ORCID", "ORCID"],
+            cv: ["Λήψη βιογραφικού", "Βιογραφικό"]
+          },
           footer: "© {year} Δημήτριος Χρήστος Ασημόπουλος.",
           visits: "{n} επισκέψεις από την έναρξη"
         }
@@ -469,6 +487,8 @@
         scholar: '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M12 3 1.5 9.5 12 16l8-4.95V17h2V9.5zM5.5 13.2V17c0 1.9 2.9 3.5 6.5 3.5s6.5-1.6 6.5-3.5v-3.8L12 17.2z"/></svg>',
         orcid: '<svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="16.5" text-anchor="middle" class="fill" font-size="11" font-weight="700" font-family="Inter, sans-serif">iD</text></svg>',
         email: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>',
+        briefcase: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
+        at: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>',
         external: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>',
         doc: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8.5 13h7M8.5 17h5"/></svg>',
         journal: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H20v15H5.5A1.5 1.5 0 0 0 4 19.5z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H20v-3"/></svg>',
@@ -760,25 +780,7 @@
         }));
       }
 
-      function renderCredentials(data) {
-        const L = data.languages;
-        const wrap = document.getElementById("languages-content");
-        const table = el("table", "language-table");
-        const head = el("tr");
-        L.headers.forEach((h) => head.append(el("th", "", h)));
-        const thead = el("thead");
-        thead.append(head);
-        const tbody = el("tbody");
-        L.rows.forEach((row) => {
-          const tr = el("tr");
-          row.forEach((cell, i) => tr.append(el(i ? "td" : "th", i ? "level" : "", cell)));
-          tbody.append(tr);
-        });
-        table.append(thead, tbody);
-        const scroller = el("div", "table-scroll");
-        scroller.append(table);
-        wrap.replaceChildren(el("p", "mother-tongue", L.motherTongue), scroller);
-
+      function renderCertifications(data) {
         document.getElementById("certifications-content").replaceChildren(...data.certifications.map(([title, detail]) => {
           const li = el("li");
           li.append(el("strong", "", title), el("span", "", detail));
@@ -786,17 +788,29 @@
         }));
       }
 
+      // Contact: link circles placed evenly around the photo, starting at the top.
       function renderContactLinks(data) {
+        const C = data.contactLinks;
         const items = [
-          [data.contactLinks.email, links.email, "email"],
-          [data.contactLinks.linkedIn, links.linkedIn, "linkedin"],
-          [data.contactLinks.orcid, links.orcid, "orcid"],
-          [data.contactLinks.cv, data.cvHref, "doc", true]
+          [C.work, links.email, "briefcase"],
+          [C.linkedIn, links.linkedIn, "linkedin"],
+          [C.cv, data.cvHref, "doc", true],
+          [C.orcid, links.orcid, "orcid"],
+          [C.personal, links.emailPersonal, "at"]
         ];
-        document.getElementById("contact-links").replaceChildren(...items.map(([label, href, icon, primary]) => {
-          const a = externalLink("", href, "contact-link" + (primary ? " primary" : ""));
-          a.innerHTML = ICONS[icon];
-          a.append(el("span", "", label));
+        document.getElementById("contact-links").replaceChildren(...items.map(([[label, short], href, icon, primary], i) => {
+          const angle = (-90 + (360 / items.length) * i) * (Math.PI / 180);
+          const a = externalLink("", href, "contact-node" + (primary ? " primary" : ""));
+          a.style.setProperty("--x", `${50 + 50 * Math.cos(angle)}%`);
+          a.style.setProperty("--y", `${50 + 50 * Math.sin(angle)}%`);
+          a.style.setProperty("--i", i);
+          a.setAttribute("aria-label", label);
+          a.title = label;
+          const circle = el("span", "node-circle");
+          circle.innerHTML = ICONS[icon];
+          const text = el("span", "node-label");
+          text.append(el("span", "full", label), el("span", "short", short));
+          a.append(circle, text);
           return a;
         }));
       }
@@ -814,7 +828,7 @@
         renderProjects(data, lang);
         renderPublications(data);
         renderSkills(data);
-        renderCredentials(data);
+        renderCertifications(data);
 
         const resume = document.getElementById("resume-action");
         resume.textContent = data.resume;
@@ -848,10 +862,8 @@
         document.getElementById("scholar-link").href = links.scholar;
         setText("skills-label", data.skillsLabel);
         setText("skills-title", data.skillsTitle);
-        setText("credentials-label", data.credentialsLabel);
-        setText("credentials-title", data.credentialsTitle);
-        setText("languages-column", data.languagesColumn);
-        setText("certifications-column", data.certificationsColumn);
+        setText("certifications-label", data.certificationsLabel);
+        setText("certifications-title", data.certificationsTitle);
         setText("contact-label", data.contactLabel);
         renderContactLinks(data);
 

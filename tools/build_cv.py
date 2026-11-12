@@ -292,12 +292,16 @@ def build(lang, data, today):
     p = spacing(doc.add_paragraph(), after=0)
     add_text(p, contact["name"][lang], size=22, bold=True, color=INK)
     p = spacing(doc.add_paragraph(), after=4)
-    phd = "Ph.D. Candidate" if lang == "en" else "Υποψήφιος Διδάκτορας"
+    phd = "PhD Candidate" if lang == "en" else "Υποψήφιος Διδάκτορας"
     add_text(p, f"{contact['role'][lang]}  ·  {phd}", size=11.5, color=ACCENT, bold=True)
 
     p = spacing(doc.add_paragraph(), after=0)
     add_text(p, f"{contact['location'][lang]}  ·  ", size=9.5, color=MUTED)
     add_link(p, contact["email"], f"mailto:{contact['email']}", size=9.5, color=MUTED, underline=False)
+    if contact.get("emailPersonal"):
+        add_text(p, "  ·  ", size=9.5, color=MUTED)
+        add_link(p, contact["emailPersonal"], f"mailto:{contact['emailPersonal']}", size=9.5, color=MUTED,
+                 underline=False)
     add_text(p, f"  ·  {L['phone']} {contact['phone']}", size=9.5, color=MUTED)
     p = spacing(doc.add_paragraph(), after=2)
     add_link(p, "LinkedIn", contact["linkedIn"], size=9.5)

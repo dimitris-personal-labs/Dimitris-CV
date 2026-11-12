@@ -4,13 +4,16 @@ Static bilingual portfolio / CV website for GitHub Pages.
 
 ## Files
 
-- `index.html`: page layout, the rest of the content and the language switcher
+- `index.html`: page layout, page labels and the language switcher
+- `data/profile.js`: contact details, CV summary, experience, education,
+  certifications, languages and skills, in English and Greek
 - `data/publications.js`: list of publications (edit this to add a paper)
 - `data/projects.js`: list of EU research projects, in English and Greek (edit this to add a project)
 - `styles.css`: responsive styling
+- `tools/build_cv.py`: builds the CV files from the `data/` files
 - `assets/dimitrios-asimopoulos-photo.jpg`: profile photo
-- `assets/dimitrios-asimopoulos-cv-en.docx`: English CV download
-- `assets/dimitrios-asimopoulos-cv-el.docx`: Greek CV download
+- `assets/dimitrios-asimopoulos-cv-{en,el}.pdf`: CV downloads linked from the site
+- `assets/dimitrios-asimopoulos-cv-{en,el}.docx`: the same CVs as Word files
 
 ## Adding a paper
 
@@ -66,6 +69,20 @@ push. GitHub Pages republishes the site automatically.
 The headline numbers at the top of the page (EU research projects and
 peer-reviewed publications) are counted automatically from these two files.
 
+## Updating the CV files
+
+The English and Greek CVs are generated from the same `data/` files as the
+website, so after adding a paper or project (or editing `data/profile.js`) run:
+
+```bash
+python3 tools/build_cv.py --pdf
+```
+
+This rewrites the `.docx` files in `assets/` and uses Microsoft Word to save
+them as PDF. Without `--pdf` it only writes the Word files. Then commit and push
+together with your data changes. Don't edit the files in `assets/` by hand:
+the next build overwrites them.
+
 ## Preview locally
 
 Open `index.html` directly in a browser.
@@ -89,6 +106,8 @@ If the repository is named exactly `username.github.io`, the site will be:
 
 ## Privacy note
 
-The webpage shows Thessaloniki, Greece instead of the full street address.
-The downloadable DOCX files are copies of the original CV files and may contain
-the full contact details from those documents.
+The webpage and the generated CVs show Thessaloniki, Greece instead of the full
+street address, and leave out year of birth, gender and nationality. The CVs
+include the phone number from `data/profile.js`. Your local working files
+(`publications/`, `Dimitris_papers.xlsx`, `Projects.docx`) are kept out of git
+by `.gitignore`.

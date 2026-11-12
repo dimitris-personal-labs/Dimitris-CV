@@ -142,14 +142,15 @@
 
     <script src="data/publications.js"></script>
     <script src="data/projects.js"></script>
+    <script src="data/profile.js"></script>
     <script>
       const links = {
         email: "mailto:dasimopoulos@metamind.gr",
         linkedIn: "https://www.linkedin.com/in/dimitris-christos-asimopoulos-2a627a262/",
         scholar: "https://scholar.google.com/citations?user=HO6cbW8AAAAJ&hl=el",
         orcid: "https://orcid.org/0009-0009-6439-0857",
-        cvEn: "assets/dimitrios-asimopoulos-cv-en.docx",
-        cvEl: "assets/dimitrios-asimopoulos-cv-el.docx"
+        cvEn: "assets/dimitrios-asimopoulos-cv-en.pdf",
+        cvEl: "assets/dimitrios-asimopoulos-cv-el.pdf"
       };
 
 
@@ -235,7 +236,7 @@
           ],
           profileLabel: "Profile",
           profileTitle: "Professional summary",
-          profileText: "Dimitris Asimopoulos received his BSc and Integrated Master's degrees in Electrical and Computer Engineering from the University of Western Macedonia (UOWM) (September 2016 - June 2022). He is currently a Ph.D. candidate, conducting research in the field of “AI in IoT systems: Security, Privacy, Ethical Challenges & Solutions,” further expanding his expertise in cutting-edge AI trends. Dimitris's interests encompass Machine Learning techniques, Artificial Intelligence, and Generative Adversarial Networks, applied in various domains. Presently, he serves as an AI Researcher and Electrical Engineer at MetaMind Innovations in Thessaloniki, where he actively contributes to the development and research of European Horizon projects. His work primarily focuses on big data processing and cybersecurity, including the prevention, detection, and response to cyberattacks.",
+          ...window.CV_PROFILE.en,
           profileFacts: [
             ["Role", "AI Researcher / Electrical Engineer"],
             ["Location", "Thessaloniki, Greece"],
@@ -254,56 +255,6 @@
             publications: ["Publications", "Selected peer-reviewed publications"],
             contact: ["Contact", "Let’s connect"]
           },
-          experience: {
-            date: "08/2022 - Current",
-            location: "Greece",
-            title: "AI Engineer / Electrical Engineer",
-            company: "MetaMind Innovations P.C.",
-            bullets: [
-              "Research and development across multiple Horizon Europe projects, with a primary focus on Artificial Intelligence, Machine Learning and big-data processing applied to cybersecurity, critical infrastructure protection and the energy sector.",
-              "Design, implementation and evaluation of AI-enabled Intrusion Detection and Prevention Systems (IDPS), with emphasis on adversarial robustness, anomaly detection and threat mitigation for industrial control systems and the smart grid.",
-              "Development of Generative Adversarial Networks (GANs) and other deep-learning models for synthetic data generation, data augmentation, text anonymisation and adversarial-attack simulation.",
-              "Active contribution to technical work-packages of EU-funded research projects, including requirements analysis, software development, integration, validation, demonstration activities and deliverable authoring according to EC specifications.",
-              "Co-author of peer-reviewed publications in international journals and conferences, including IEEE, ACM, Elsevier and Springer venues."
-            ]
-          },
-          education: [
-            {
-              date: "09/2016 - 06/2022",
-              location: "Greece",
-              title: "Electrical and Computer Engineering",
-              org: "University of Western Macedonia (UOWM), Kozani",
-              body: "Department of Electrical and Computer Engineering, Faculty of Engineering. Specialisation: Computers and Electronics. Diploma thesis: “Generative Neural Networks and Applications”."
-            },
-            {
-              date: "09/2016 - 06/2022",
-              location: "Greece",
-              title: "Integrated Master Electrical and Computer Engineer",
-              org: "University of Western Macedonia (UOWM), Kozani",
-              body: "Core courses: Machine Learning, Fuzzy Systems, Artificial Intelligence, Biomedical Engineering, Robotics, Design and Analysis of Algorithms, Computer Architecture, Parallel and Distributed Systems and Advanced Topics in Digital Design."
-            }
-          ],
-          certifications: [
-            ["Build a Modern Computer from First Principles: From Nand to Tetris", "Coursera / University of Jerusalem, October 2021"],
-            ["NDG Linux Unhatched", "Cisco Networking Academy, February 2022"],
-            ["NDG Linux Essentials", "Cisco Networking Academy, February 2022"],
-            ["International Business Strategy", "International team project jointly delivered by the University of Western Macedonia and Karlsruhe University of Applied Sciences, funded by DAAD, December 2020"]
-          ],
-          languages: {
-            motherTongue: "Mother tongue: Greek",
-            rows: [
-              ["English", "B2", "B2", "B2", "B2", "B2"],
-              ["German", "A1", "A1", "A1", "A1", "A1"]
-            ],
-            headers: ["Language", "Listening", "Reading", "Spoken production", "Spoken interaction", "Writing"]
-          },
-          skillGroups: [
-            ["Programming languages", ["Python", "C", "C++", "Java", "JavaScript", "MATLAB", "SQL", "Bash"]],
-            ["AI / ML frameworks and libraries", ["PyTorch", "TensorFlow", "Keras", "scikit-learn", "Hugging Face Transformers", "NumPy", "Pandas", "OpenCV"]],
-            ["Specialisation areas", ["GANs", "Deep Learning", "Adversarial Machine Learning", "Intrusion Detection / Prevention", "Natural Language Processing", "Big Data Analytics"]],
-            ["Tools and platforms", ["Git", "GitHub", "GitLab", "Docker", "Linux / Unix", "Jupyter", "MLflow", "MISP", "OpenCTI"]],
-            ["Productivity", ["MS Office", "Google Workspace", "LaTeX", "Overleaf", "Atlassian Jira", "Confluence"]]
-          ],
           projectsIntro: "EU-funded research projects (Horizon 2020, Horizon Europe and Digital Europe) through MetaMind Innovations P.C.",
           projects: projectsFor("en", "Ongoing"),
           publicationsIntro: "Full list available on Google Scholar.",
@@ -341,7 +292,7 @@
           ],
           profileLabel: "Προφίλ",
           profileTitle: "Επαγγελματική περίληψη",
-          profileText: "Ο Δημήτρης Ασημόπουλος έλαβε το πτυχίο και το ολοκληρωμένο μεταπτυχιακό δίπλωμα από το Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών του Πανεπιστημίου Δυτικής Μακεδονίας (ΠΔΜ) (Σεπτέμβριος 2016 - Ιούνιος 2022). Αυτή τη στιγμή είναι υποψήφιος διδάκτορας, πραγματοποιώντας έρευνα στο πεδίο της «Τεχνητής Νοημοσύνης σε συστήματα IoT: Ασφάλεια, Ιδιωτικότητα, Ηθικές Προκλήσεις και Λύσεις», επεκτείνοντας περαιτέρω την εξειδίκευσή του στις τελευταίες τάσεις της Τεχνητής Νοημοσύνης. Τα ενδιαφέροντα του Δημήτρη περιλαμβάνουν τις τεχνικές Μηχανικής Μάθησης, την Τεχνητή Νοημοσύνη και τα Γενετικά Αντιπαραθετικά Δίκτυα, εφαρμοσμένα σε διάφορους τομείς. Αυτή τη στιγμή εργάζεται ως Ηλεκτρολόγος Μηχανικός και ερευνητής Τεχνητής Νοημοσύνης στη MetaMind Innovations στη Θεσσαλονίκη, όπου συμβάλλει ενεργά στην ανάπτυξη και στην έρευνα στο πλαίσιο των ευρωπαϊκών έργων Horizon. Οι αρμοδιότητές του επικεντρώνονται κυρίως στην επεξεργασία μεγάλων δεδομένων και την κυβερνοασφάλεια, συμπεριλαμβανομένης της πρόληψης, ανίχνευσης και απόκρισης σε κυβερνοεπιθέσεις.",
+          ...window.CV_PROFILE.el,
           profileFacts: [
             ["Ρόλος", "Ερευνητής Τεχνητής Νοημοσύνης / Ηλεκτρολόγος Μηχανικός"],
             ["Τοποθεσία", "Θεσσαλονίκη, Ελλάδα"],
@@ -360,56 +311,6 @@
             publications: ["Δημοσιεύσεις", "Επιλεγμένες δημοσιεύσεις με κρίση"],
             contact: ["Επικοινωνία", "Ας συνδεθούμε"]
           },
-          experience: {
-            date: "08/2022 - Σήμερα",
-            location: "Ελλάδα",
-            title: "Μηχανικός Τεχνητής Νοημοσύνης / Ηλεκτρολόγος Μηχανικός",
-            company: "MetaMind Innovations P.C.",
-            bullets: [
-              "Έρευνα και ανάπτυξη σε πολλαπλά Ευρωπαϊκά Προγράμματα Horizon, με κύρια εστίαση στην Τεχνητή Νοημοσύνη, τη Μηχανική Μάθηση και την επεξεργασία μεγάλων δεδομένων με εφαρμογή στην κυβερνοασφάλεια, την προστασία κρίσιμων υποδομών και τον ενεργειακό τομέα.",
-              "Σχεδίαση, υλοποίηση και αξιολόγηση Συστημάτων Ανίχνευσης και Πρόληψης Εισβολών (IDPS) με χρήση Τεχνητής Νοημοσύνης, με έμφαση στην ανθεκτικότητα έναντι ανταγωνιστικών επιθέσεων, στην ανίχνευση ανωμαλιών και στη μετρίαση απειλών για βιομηχανικά συστήματα ελέγχου και το έξυπνο ηλεκτρικό δίκτυο.",
-              "Ανάπτυξη Παραγωγικών Ανταγωνιστικών Δικτύων (GANs) και άλλων μοντέλων βαθιάς μάθησης για παραγωγή συνθετικών δεδομένων, αύξηση δεδομένων, ανωνυμοποίηση κειμένου και προσομοίωση ανταγωνιστικών επιθέσεων.",
-              "Ενεργή συμβολή στα τεχνικά πακέτα εργασίας ευρωπαϊκών ερευνητικών έργων, συμπεριλαμβανομένων της ανάλυσης απαιτήσεων, της ανάπτυξης λογισμικού, της ολοκλήρωσης, της επικύρωσης, των δραστηριοτήτων επίδειξης και της συγγραφής παραδοτέων σύμφωνα με τις προδιαγραφές της Ευρωπαϊκής Επιτροπής.",
-              "Συν-συγγραφέας δημοσιεύσεων με κρίση σε διεθνή επιστημονικά περιοδικά και συνέδρια, συμπεριλαμβανομένων IEEE, ACM, Elsevier και Springer."
-            ]
-          },
-          education: [
-            {
-              date: "09/2016 - 06/2022",
-              location: "Ελλάδα",
-              title: "Ηλεκτρολόγος Μηχανικός και Μηχανικός Υπολογιστών",
-              org: "Πανεπιστήμιο Δυτικής Μακεδονίας (ΠΔΜ), Κοζάνη",
-              body: "Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών, Πολυτεχνική Σχολή. Ειδίκευση: Υπολογιστών και Ηλεκτρονικής. Διπλωματική εργασία: «Παραγωγικά Νευρωνικά Δίκτυα και Εφαρμογές»."
-            },
-            {
-              date: "09/2016 - 06/2022",
-              location: "Ελλάδα",
-              title: "Ενιαίο και Αδιάσπαστο Μεταπτυχιακό Δίπλωμα Ηλεκτρολόγου Μηχανικού και Μηχανικού Υπολογιστών",
-              org: "Πανεπιστήμιο Δυτικής Μακεδονίας (ΠΔΜ), Κοζάνη",
-              body: "Βασικά μαθήματα: Μηχανική Μάθηση, Ασαφή Συστήματα, Τεχνητή Νοημοσύνη, Βιοϊατρική, Ρομποτική, Σχεδίαση και Ανάλυση Αλγορίθμων, Αρχιτεκτονική Υπολογιστών, Παράλληλα και Διανεμημένα Συστήματα, Προχωρημένα Θέματα Ψηφιακού Σχεδιασμού."
-            }
-          ],
-          certifications: [
-            ["Build a Modern Computer from First Principles: From Nand to Tetris", "Coursera / Πανεπιστήμιο της Ιερουσαλήμ, Οκτώβριος 2021"],
-            ["NDG Linux Unhatched", "Cisco Networking Academy, Φεβρουάριος 2022"],
-            ["NDG Linux Essentials", "Cisco Networking Academy, Φεβρουάριος 2022"],
-            ["International Business Strategy", "Διεθνές ομαδικό έργο από το Πανεπιστήμιο Δυτικής Μακεδονίας και το Πανεπιστήμιο Εφαρμοσμένων Επιστημών της Καρλσρούης, χρηματοδοτούμενο από DAAD, Δεκέμβριος 2020"]
-          ],
-          languages: {
-            motherTongue: "Μητρική γλώσσα: Ελληνικά",
-            rows: [
-              ["Αγγλικά", "Β2", "Β2", "Β2", "Β2", "Β2"],
-              ["Γερμανικά", "A1", "A1", "A1", "A1", "A1"]
-            ],
-            headers: ["Γλώσσα", "Ακρόαση", "Ανάγνωση", "Προφορική παραγωγή", "Προφορική επικοινωνία", "Γραφή"]
-          },
-          skillGroups: [
-            ["Γλώσσες προγραμματισμού", ["Python", "C", "C++", "Java", "JavaScript", "MATLAB", "SQL", "Bash"]],
-            ["Πλαίσια και βιβλιοθήκες AI / ML", ["PyTorch", "TensorFlow", "Keras", "scikit-learn", "Hugging Face Transformers", "NumPy", "Pandas", "OpenCV"]],
-            ["Τομείς εξειδίκευσης", ["Παραγωγικά Ανταγωνιστικά Δίκτυα (GANs)", "Βαθιά Μάθηση", "Ανταγωνιστική Μηχανική Μάθηση", "Ανίχνευση / Πρόληψη Εισβολών", "Επεξεργασία Φυσικής Γλώσσας", "Ανάλυση Μεγάλων Δεδομένων"]],
-            ["Εργαλεία και πλατφόρμες", ["Git", "GitHub", "GitLab", "Docker", "Linux / Unix", "Jupyter", "MLflow", "MISP", "OpenCTI"]],
-            ["Παραγωγικότητα", ["MS Office", "Google Workspace", "LaTeX", "Overleaf", "Atlassian Jira", "Confluence"]]
-          ],
           projectsIntro: "Ευρωπαϊκά ερευνητικά έργα (Horizon 2020, Horizon Europe και Digital Europe) μέσω της MetaMind Innovations P.C.",
           projects: projectsFor("el", "Σε εξέλιξη"),
           publicationsIntro: "Πλήρης λίστα διαθέσιμη στο Google Scholar.",

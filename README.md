@@ -83,6 +83,19 @@ them as PDF. Without `--pdf` it only writes the Word files. Then commit and push
 together with your data changes. Don't edit the files in `assets/` by hand:
 the next build overwrites them.
 
+## Google Scholar metrics (automatic)
+
+Citations, h-index, i10-index and citations per year come from your public
+Google Scholar profile and are stored in `data/scholar.js`. A GitHub Action
+(`.github/workflows/update-scholar.yml`) refreshes them every Monday and
+republishes the site when the numbers change. To refresh right away:
+GitHub → **Actions** → **Update Google Scholar metrics** → **Run workflow**,
+or run `python3 tools/update_scholar.py` locally and commit `data/scholar.js`.
+
+Google Scholar has no official API. If it ever blocks the automatic request,
+the site simply keeps showing the last numbers; running the script on your own
+computer and pushing the result updates them.
+
 ## Visitor counter (optional)
 
 The site can show how many people have visited it, using

@@ -1,0 +1,47 @@
+# Reads citations, h-index and i10-index from the public Google Scholar
+# profile every Monday and updates data/scholar.js when the numbers change.
+# Can also be started by hand: GitHub → Actions → "Update Google Scholar
+# metrics" → "Run workflow".
+name: Update Google Scholar metrics
+
+on:
+  schedule:
+    - cron: "17 6 * * 1" # Mondays 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: update-scholar
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Read Google Scholar profile
+        run: python3 tools/update_scholar.py
+
+      - name: Commit and publish if the numbers changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- data/scholar.js; then
+            echo "Numbers unchanged; nothing to publish."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/scholar.js
+          git commit -m "Update Google Scholar metrics"
+          git push
+          # Pushes made by this workflow don't always start a Pages build, so ask for one.
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || true

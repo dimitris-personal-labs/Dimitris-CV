@@ -113,6 +113,17 @@
           <p class="section-label" id="numbers-label"></p>
           <h2 id="numbers-title"></h2>
         </div>
+        <div class="scholar glass" id="scholar-panel" data-reveal hidden>
+          <div class="scholar-stats" id="scholar-stats"></div>
+          <div class="scholar-chart">
+            <p class="scholar-chart-title" id="scholar-chart-title"></p>
+            <div class="bars" id="scholar-bars"></div>
+          </div>
+          <p class="scholar-foot">
+            <span id="scholar-updated"></span>
+            <a id="scholar-profile" target="_blank" rel="noopener">Google Scholar ↗</a>
+          </p>
+        </div>
         <div class="kpi-grid" id="kpi-grid"></div>
       </section>
 
@@ -216,6 +227,7 @@
     <script src="data/publications.js"></script>
     <script src="data/projects.js"></script>
     <script src="data/profile.js"></script>
+    <script src="data/scholar.js"></script>
     <script>
       // ------------------------------------------------------------------
       // Settings
@@ -279,6 +291,9 @@
         firstAuthor: peerReviewed.filter((pub) => pub.authors.search(OWN_NAME) === 0).length,
         projects: window.CV_PROJECTS.length,
         ongoing: window.CV_PROJECTS.filter(isOngoing).length,
+        citations: window.CV_SCHOLAR ? window.CV_SCHOLAR.citations : null,
+        hIndex: window.CV_SCHOLAR ? window.CV_SCHOLAR.hIndex : null,
+        i10Index: window.CV_SCHOLAR ? window.CV_SCHOLAR.i10Index : null,
         years: Math.floor(((today.getFullYear() - RD_START.year) * 12 + today.getMonth() + 1 - RD_START.month) / 12),
         visitors: null
       };
@@ -323,6 +338,14 @@
             ongoing: "Ongoing projects",
             years: "Years in R&D",
             visitors: "Visitors to this site"
+          },
+          scholar: {
+            citations: "Citations",
+            hIndex: "h-index",
+            i10Index: "i10-index",
+            since: "Since {year}: {n}",
+            perYear: "Citations per year",
+            updated: "Updated {date} from"
           },
           aboutLabel: "About",
           aboutTitle: "Professional summary",
@@ -390,6 +413,14 @@
             ongoing: "Έργα σε εξέλιξη",
             years: "Χρόνια στην Έρευνα & Ανάπτυξη",
             visitors: "Επισκέψεις στη σελίδα"
+          },
+          scholar: {
+            citations: "Αναφορές",
+            hIndex: "h-index",
+            i10Index: "i10-index",
+            since: "Από το {year}: {n}",
+            perYear: "Αναφορές ανά έτος",
+            updated: "Ενημέρωση {date} από το"
           },
           aboutLabel: "Προφίλ",
           aboutTitle: "Επαγγελματική περίληψη",
@@ -531,6 +562,48 @@
             card.append(ic, value, el("span", "kpi-label", data.kpis[key]));
             return card;
           }));
+      }
+
+      // Google Scholar panel: citations, h-index, i10-index and a per-year chart.
+      function renderScholar(data, lang) {
+        const sch = window.CV_SCHOLAR;
+        const panel = document.getElementById("scholar-panel");
+        if (!sch) { panel.hidden = true; return; }
+        panel.hidden = false;
+        const L = data.scholar;
+
+        document.getElementById("scholar-stats").replaceChildren(...[
+          ["citations", sch.citationsRecent],
+          ["hIndex", sch.hIndexRecent],
+          ["i10Index", sch.i10IndexRecent]
+        ].map(([key, recent]) => {
+          const block = el("div", "scholar-stat");
+          const num = el("strong", "", "0");
+          num.dataset.count = key;
+          block.append(num, el("span", "scholar-label", L[key]));
+          if (sch.recentSince) {
+            block.append(el("span", "scholar-since", L.since.replace("{year}", sch.recentSince).replace("{n}", recent)));
+          }
+          return block;
+        }));
+
+        setText("scholar-chart-title", L.perYear);
+        const max = Math.max(1, ...sch.citationsPerYear.map((d) => d.count));
+        document.getElementById("scholar-bars").replaceChildren(...sch.citationsPerYear.map((d, i) => {
+          const bar = el("div", "bar");
+          bar.style.setProperty("--h", `${Math.max(3, (d.count / max) * 100)}%`);
+          bar.style.setProperty("--i", i);
+          const col = el("span", "bar-fill");
+          col.append(el("span", "bar-value", String(d.count)));
+          bar.append(col, el("span", "bar-year", String(d.year)));
+          bar.title = `${d.year}: ${d.count}`;
+          return bar;
+        }));
+
+        const date = new Date(sch.updated + "T12:00:00").toLocaleDateString(lang === "el" ? "el-GR" : "en-GB",
+          { day: "numeric", month: "long", year: "numeric" });
+        setText("scholar-updated", L.updated.replace("{date}", date) + " ");
+        document.getElementById("scholar-profile").href = sch.profile;
       }
 
       function renderFacts(data) {
@@ -735,6 +808,7 @@
 
         renderNav(data);
         renderKpis(data);
+        renderScholar(data, lang);
         renderFacts(data);
         renderJourney(data);
         renderProjects(data, lang);

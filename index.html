@@ -57,7 +57,7 @@
           <p class="hero-hello" id="hero-hello" data-reveal></p>
           <h1 data-reveal style="--i: 1">
             <span id="hero-intro"></span>
-            <span class="gradient-text" id="hero-name"></span>
+            <span class="hero-name" id="hero-name"></span>
           </h1>
           <p class="hero-role" data-reveal style="--i: 2">
             <span id="hero-role"></span><span class="caret" aria-hidden="true"></span>
@@ -182,10 +182,35 @@
         <ol class="publication-list" id="publications-content"></ol>
       </section>
 
+      <!-- THESIS -->
+      <section class="section" id="thesis">
+        <div class="section-heading" data-reveal>
+          <p class="section-label"><span class="kicker">05</span><span id="thesis-label"></span></p>
+          <h2 id="thesis-heading"></h2>
+        </div>
+        <article class="thesis glass spot" data-reveal>
+          <a class="thesis-cover" id="thesis-cover-link" target="_blank" rel="noopener">
+            <img id="thesis-cover" alt="" width="497" height="702" loading="lazy" />
+            <span class="thesis-badge">PDF</span>
+          </a>
+          <div class="thesis-body">
+            <p class="thesis-meta" id="thesis-meta"></p>
+            <h3 class="thesis-title" id="thesis-title"></h3>
+            <p class="thesis-subtitle" id="thesis-subtitle"></p>
+            <dl class="thesis-facts" id="thesis-facts"></dl>
+            <p class="thesis-abstract" id="thesis-abstract"></p>
+            <div class="thesis-actions">
+              <a class="button primary" id="thesis-open" target="_blank" rel="noopener"></a>
+              <a class="button ghost" id="thesis-download" download></a>
+            </div>
+          </div>
+        </article>
+      </section>
+
       <!-- SKILLS -->
       <section class="section" id="skills">
         <div class="section-heading" data-reveal>
-          <p class="section-label"><span class="kicker">05</span><span id="skills-label"></span></p>
+          <p class="section-label"><span class="kicker">06</span><span id="skills-label"></span></p>
           <h2 id="skills-title"></h2>
         </div>
         <div class="marquee" aria-hidden="true"><div class="marquee-track" id="skills-marquee"></div></div>
@@ -195,7 +220,7 @@
       <!-- CERTIFICATIONS -->
       <section class="section" id="certifications">
         <div class="section-heading" data-reveal>
-          <p class="section-label"><span class="kicker">06</span><span id="certifications-label"></span></p>
+          <p class="section-label"><span class="kicker">07</span><span id="certifications-label"></span></p>
           <h2 id="certifications-title"></h2>
         </div>
         <div class="glass panel" data-reveal>
@@ -207,20 +232,23 @@
       <section class="contact" id="contact">
         <div class="contact-card" data-reveal>
           <p class="section-label" id="contact-label"></p>
-          <div class="contact-orbit">
-            <div class="orbit-ring ring-outer"></div>
-            <div class="orbit-ring ring-dashed"></div>
-            <div class="orbit-glow"></div>
-            <div class="contact-disc"></div>
-            <img
-              class="contact-photo"
-              src="assets/dimitrios-asimopoulos-photo.jpg"
-              alt=""
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-            <div class="contact-links" id="contact-links"></div>
+          <div class="contact-row">
+            <div class="contact-avatar">
+              <div class="avatar-ring"></div>
+              <div class="contact-disc"></div>
+              <img
+                class="contact-photo"
+                src="assets/dimitrios-asimopoulos-photo.jpg"
+                alt=""
+                width="900"
+                height="900"
+                loading="lazy"
+              />
+            </div>
+            <div class="contact-track">
+              <span class="track-line" aria-hidden="true"><span class="track-pulse"></span></span>
+              <div class="contact-links" id="contact-links"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -330,7 +358,7 @@
           hello: "Hello,",
           intro: "I’m",
           name: "Dimitrios Asimopoulos",
-          roles: ["AI Researcher", "PhD Candidate", "Electrical & Computer Engineer", "Adversarial ML Researcher"],
+          roles: ["Electrical & Computer Engineer", "AI Researcher", "PhD Candidate", "Adversarial ML Researcher"],
           heroText: "Researching trustworthy AI for IoT systems and critical infrastructure – security, privacy, ethical challenges and solutions.",
           discover: "Discover more",
           follow: "Follow me:",
@@ -381,6 +409,16 @@
           publicationsIntro: "Newest first. Full list on",
           publicationFilters: [["all", "All"], ["journal", "Journals"], ["conference", "Conferences"]],
           types: { journal: "Journal", conference: "Conference", preprint: "Preprint" },
+          thesisText: {
+            label: "Thesis",
+            heading: "Diploma thesis",
+            pages: "{n} pages",
+            subtitle: "Original title (Greek): «{t}»",
+            supervisor: "Supervisor",
+            institution: "Institution",
+            open: "Read the PDF",
+            download: "Download"
+          },
           skillsLabel: "Skills",
           skillsTitle: "Technical toolkit",
           certificationsLabel: "Certifications",
@@ -390,6 +428,7 @@
             work: ["Work email", "Work"],
             personal: ["Personal email", "Personal"],
             linkedIn: ["LinkedIn", "LinkedIn"],
+            scholar: ["Google Scholar", "Scholar"],
             orcid: ["ORCID", "ORCID"],
             cv: ["Download CV", "CV"]
           },
@@ -410,7 +449,7 @@
           hello: "Γεια σας,",
           intro: "Είμαι ο",
           name: "Δημήτρης Ασημόπουλος",
-          roles: ["Ερευνητής Τεχνητής Νοημοσύνης", "Υποψήφιος Διδάκτορας", "Ηλεκτρολόγος Μηχανικός & Μηχ. Υπολογιστών", "Ερευνητής Ανταγωνιστικής Μηχανικής Μάθησης"],
+          roles: ["Ηλεκτρολόγος Μηχανικός & Μηχανικός Υπολογιστών", "Ερευνητής Τεχνητής Νοημοσύνης", "Υποψήφιος Διδάκτορας", "Ερευνητής Ανταγωνιστικής Μηχανικής Μάθησης"],
           heroText: "Έρευνα για αξιόπιστη Τεχνητή Νοημοσύνη σε συστήματα IoT και κρίσιμες υποδομές – ασφάλεια, ιδιωτικότητα, ηθικές προκλήσεις και λύσεις.",
           discover: "Μάθετε περισσότερα",
           follow: "Ακολουθήστε με:",
@@ -461,6 +500,16 @@
           publicationsIntro: "Από τις πιο πρόσφατες. Πλήρης λίστα στο",
           publicationFilters: [["all", "Όλες"], ["journal", "Περιοδικά"], ["conference", "Συνέδρια"]],
           types: { journal: "Περιοδικό", conference: "Συνέδριο", preprint: "Προδημοσίευση" },
+          thesisText: {
+            label: "Διπλωματική",
+            heading: "Διπλωματική εργασία",
+            pages: "{n} σελίδες",
+            subtitle: "Τίτλος στα αγγλικά: «{t}»",
+            supervisor: "Επιβλέπων",
+            institution: "Ίδρυμα",
+            open: "Ανάγνωση PDF",
+            download: "Λήψη"
+          },
           skillsLabel: "Δεξιότητες",
           skillsTitle: "Τεχνικό υπόβαθρο",
           certificationsLabel: "Πιστοποιήσεις",
@@ -470,6 +519,7 @@
             work: ["Email εργασίας", "Εργασία"],
             personal: ["Προσωπικό email", "Προσωπικό"],
             linkedIn: ["LinkedIn", "LinkedIn"],
+            scholar: ["Google Scholar", "Scholar"],
             orcid: ["ORCID", "ORCID"],
             cv: ["Λήψη βιογραφικού", "Βιογραφικό"]
           },
@@ -572,14 +622,12 @@
             const card = el("article", "kpi glass spot");
             card.dataset.reveal = "";
             card.style.setProperty("--i", i % 4);
-            const ic = el("span", "kpi-icon");
-            ic.innerHTML = ICONS[icon];
             const value = el("strong", "kpi-value");
             const num = el("span", "", stats[key] === null ? "–" : "0");
             num.dataset.count = key;
             value.append(num);
             if (suffix) value.append(suffix);
-            card.append(ic, value, el("span", "kpi-label", data.kpis[key]));
+            card.append(value, el("span", "kpi-label", data.kpis[key]));
             return card;
           }));
       }
@@ -780,6 +828,44 @@
         }));
       }
 
+      function renderThesis(data, lang) {
+        const t = window.CV_PROFILE.thesis;
+        const T = data.thesisText;
+        const section = document.getElementById("thesis");
+        if (!t) { section.hidden = true; return; }
+        const other = lang === "el" ? "en" : "el";
+        const [month, year] = t.date.split("/").map(Number);
+        const when = new Date(year, month - 1, 15).toLocaleDateString(lang === "el" ? "el-GR" : "en-GB",
+          { month: "long", year: "numeric" });
+
+        setText("thesis-label", T.label);
+        setText("thesis-heading", T.heading);
+        setText("thesis-meta", `${when} · ${T.pages.replace("{n}", t.pages)} · PDF`);
+        setText("thesis-title", t.title[lang]);
+        setText("thesis-subtitle", T.subtitle.replace("{t}", t.title[other]));
+        setText("thesis-abstract", t.abstract[lang]);
+        document.getElementById("thesis-facts").replaceChildren(...[
+          [T.supervisor, t.supervisor[lang]],
+          [T.institution, t.institution[lang]]
+        ].map(([k, v]) => {
+          const row = el("div");
+          row.append(el("dt", "", k), el("dd", "", v));
+          return row;
+        }));
+
+        const cover = document.getElementById("thesis-cover");
+        cover.src = t.cover;
+        cover.alt = t.title[lang];
+        document.getElementById("thesis-cover-link").href = t.file;
+        const open = document.getElementById("thesis-open");
+        open.href = t.file;
+        open.innerHTML = ICONS.doc;
+        open.append(T.open);
+        const dl = document.getElementById("thesis-download");
+        dl.href = t.file;
+        dl.textContent = T.download;
+      }
+
       function renderCertifications(data) {
         document.getElementById("certifications-content").replaceChildren(...data.certifications.map(([title, detail]) => {
           const li = el("li");
@@ -788,21 +874,19 @@
         }));
       }
 
-      // Contact: link circles placed evenly around the photo, starting at the top.
+      // Contact: a row of link circles joined by a glowing line, next to the photo.
       function renderContactLinks(data) {
         const C = data.contactLinks;
         const items = [
           [C.work, links.email, "briefcase"],
+          [C.personal, links.emailPersonal, "at"],
           [C.linkedIn, links.linkedIn, "linkedin"],
-          [C.cv, data.cvHref, "doc", true],
+          [C.scholar, links.scholar, "scholar"],
           [C.orcid, links.orcid, "orcid"],
-          [C.personal, links.emailPersonal, "at"]
+          [C.cv, data.cvHref, "doc", true]
         ];
         document.getElementById("contact-links").replaceChildren(...items.map(([[label, short], href, icon, primary], i) => {
-          const angle = (-90 + (360 / items.length) * i) * (Math.PI / 180);
           const a = externalLink("", href, "contact-node" + (primary ? " primary" : ""));
-          a.style.setProperty("--x", `${50 + 50 * Math.cos(angle)}%`);
-          a.style.setProperty("--y", `${50 + 50 * Math.sin(angle)}%`);
           a.style.setProperty("--i", i);
           a.setAttribute("aria-label", label);
           a.title = label;
@@ -828,6 +912,7 @@
         renderProjects(data, lang);
         renderPublications(data);
         renderSkills(data);
+        renderThesis(data, lang);
         renderCertifications(data);
 
         const resume = document.getElementById("resume-action");

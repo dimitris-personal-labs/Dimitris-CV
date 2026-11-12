@@ -12,6 +12,26 @@ window.CV_PROFILE = {
     scholar: "https://scholar.google.com/citations?user=HO6cbW8AAAAJ&hl=el",
     orcid: "0009-0009-6439-0857"
   },
+  // Diploma thesis shown in its own section on the website.
+  thesis: {
+    file: "assets/asimopoulos-diploma-thesis.pdf",
+    cover: "assets/asimopoulos-diploma-thesis-cover.jpg",
+    date: "07/2022",
+    pages: 87,
+    title: {
+      el: "Παραγωγικά Ανταγωνιστικά Δίκτυα και Εφαρμογές",
+      en: "Generative Adversarial Networks and Applications"
+    },
+    supervisor: { en: "George F. Fragulis", el: "Γεώργιος Φραγκούλης" },
+    institution: {
+      en: "Department of Electrical and Computer Engineering, University of Western Macedonia, Kozani",
+      el: "Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών, Πανεπιστήμιο Δυτικής Μακεδονίας, Κοζάνη"
+    },
+    abstract: {
+      en: "In this diploma thesis, the various architectures of Generative Adversarial Networks were studied and their indicative applications in various fields are presented. Introductory information about the functioning of simple neural networks is first presented, followed by a presentation of convolutional neural networks. The review concludes with the main architectures applied to Generative Adversarial Networks and the fields in which they are applied. Finally, examples of applications and code for indicative Generative Adversarial Network architectures are presented.",
+      el: "Στην παρούσα διπλωματική εργασία μελετήθηκαν οι διάφορες αρχιτεκτονικές των παραγωγικών νευρωνικών δικτύων και παρουσιάζονται ενδεικτικές εφαρμογές τους σε διάφορα πεδία. Παρουσιάζονται αρχικά εισαγωγικές πληροφορίες σχετικά με τη λειτουργία των απλών νευρωνικών δικτύων και στη συνέχεια γίνεται μια παρουσίαση των συνελικτικών νευρωνικών δικτύων. Η επισκόπηση ολοκληρώνεται με την παράθεση των κυριότερων αρχιτεκτονικών που εφαρμόζονται στα παραγωγικά νευρωνικά δίκτυα και των γνωστικών πεδίων στα οποία εφαρμόζονται. Τέλος, παρουσιάζονται παραδείγματα εφαρμογών και σχετικοί κώδικες ενδεικτικών αρχιτεκτονικών των παραγωγικών νευρωνικών δικτύων."
+    }
+  },
   en: {
     // Short summary at the top of the CV. {publications} is replaced with the current count.
     cvSummary: "AI researcher and Electrical & Computer Engineer with R&D experience since 2022 in EU-funded Horizon 2020, Horizon Europe and Digital Europe projects. PhD candidate at the International Hellenic University, researching the security, privacy and ethics of AI in IoT systems. Specialised in adversarial machine learning, AI-enabled intrusion detection, generative models and text anonymisation, with {publications} peer-reviewed publications in IEEE, ACM, Elsevier and AIP venues.",
@@ -49,7 +69,7 @@ window.CV_PROFILE = {
         location: "Greece",
         title: "Electrical and Computer Engineering",
         org: "University of Western Macedonia (UOWM), Kozani",
-        body: "Department of Electrical and Computer Engineering, Faculty of Engineering. Specialisation: Computers and Electronics. Diploma thesis: “Generative Neural Networks and Applications”."
+        body: "Department of Electrical and Computer Engineering, Faculty of Engineering. Specialisation: Computers and Electronics. Diploma thesis: “Generative Adversarial Networks and Applications”."
       },
       {
         date: "09/2016 - 06/2022",
@@ -117,7 +137,7 @@ window.CV_PROFILE = {
         location: "Ελλάδα",
         title: "Ηλεκτρολόγος Μηχανικός και Μηχανικός Υπολογιστών",
         org: "Πανεπιστήμιο Δυτικής Μακεδονίας (ΠΔΜ), Κοζάνη",
-        body: "Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών, Πολυτεχνική Σχολή. Ειδίκευση: Υπολογιστών και Ηλεκτρονικής. Διπλωματική εργασία: «Παραγωγικά Νευρωνικά Δίκτυα και Εφαρμογές»."
+        body: "Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών, Πολυτεχνική Σχολή. Ειδίκευση: Υπολογιστών και Ηλεκτρονικής. Διπλωματική εργασία: «Παραγωγικά Ανταγωνιστικά Δίκτυα και Εφαρμογές»."
       },
       {
         date: "09/2016 - 06/2022",

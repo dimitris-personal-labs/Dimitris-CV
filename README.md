@@ -40,7 +40,8 @@ builds the citation text from these fields.
 
 ## Adding a project
 
-Open `data/projects.js` and add a new block at the end of the list:
+Open `data/projects.js` and add a new block anywhere in the list (the site sorts
+projects by start date):
 
 ```js
   {
@@ -54,8 +55,10 @@ Open `data/projects.js` and add a new block at the end of the list:
   },
 ```
 
-For a project that is still running, use `end: ""` and the site shows
-"Ongoing" / "Σε εξέλιξη".
+Use the official project dates. While the end date hasn't passed yet, the site
+adds "(ongoing)" / "(σε εξέλιξη)" automatically. `programme` and `url` are
+optional extra lines, e.g. `programme: "Horizon Europe",` and
+`url: "https://...",`; with a url, the project name becomes a link.
 
 After either change, open `index.html` in a browser to check it, then commit and
 push. GitHub Pages republishes the site automatically.

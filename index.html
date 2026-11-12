@@ -180,11 +180,33 @@
         return pub.url || "";
       }
 
+      // "MM/YYYY" -> number that sorts by date, e.g. "09/2024" -> 202409.
+      function monthValue(mmYYYY) {
+        const [month, year] = mmYYYY.split("/").map(Number);
+        return year * 100 + month;
+      }
+
+      const today = new Date();
+      const currentMonth = today.getFullYear() * 100 + today.getMonth() + 1;
+
+      // Oldest first, by start date.
+      const sortedProjects = [...window.CV_PROJECTS].sort(
+        (a, b) => monthValue(a.start) - monthValue(b.start)
+      );
+
+      function projectDates(project, ongoingLabel) {
+        if (!project.end) return `${project.start} - ${ongoingLabel}`;
+        const ongoing = monthValue(project.end) >= currentMonth;
+        return `${project.start} - ${project.end}${ongoing ? ` (${ongoingLabel.toLowerCase()})` : ""}`;
+      }
+
       function projectsFor(lang, ongoingLabel) {
-        return window.CV_PROJECTS.map((project) => [
+        return sortedProjects.map((project) => [
           project.name,
-          `${project.start} - ${project.end || ongoingLabel}`,
-          project.description[lang]
+          projectDates(project, ongoingLabel),
+          project.description[lang],
+          project.programme || "",
+          project.url || ""
         ]);
       }
 
@@ -282,7 +304,7 @@
             ["Tools and platforms", ["Git", "GitHub", "GitLab", "Docker", "Linux / Unix", "Jupyter", "MLflow", "MISP", "OpenCTI"]],
             ["Productivity", ["MS Office", "Google Workspace", "LaTeX", "Overleaf", "Atlassian Jira", "Confluence"]]
           ],
-          projectsIntro: "Horizon 2020 and Horizon Europe research projects through MetaMind Innovations P.C.",
+          projectsIntro: "EU-funded research projects (Horizon 2020, Horizon Europe and Digital Europe) through MetaMind Innovations P.C.",
           projects: projectsFor("en", "Ongoing"),
           publicationsIntro: "Full list available on Google Scholar.",
           publications: sortedPublications,
@@ -388,7 +410,7 @@
             ["Εργαλεία και πλατφόρμες", ["Git", "GitHub", "GitLab", "Docker", "Linux / Unix", "Jupyter", "MLflow", "MISP", "OpenCTI"]],
             ["Παραγωγικότητα", ["MS Office", "Google Workspace", "LaTeX", "Overleaf", "Atlassian Jira", "Confluence"]]
           ],
-          projectsIntro: "Ευρωπαϊκά ερευνητικά έργα Horizon 2020 και Horizon Europe μέσω της MetaMind Innovations P.C.",
+          projectsIntro: "Ευρωπαϊκά ερευνητικά έργα (Horizon 2020, Horizon Europe και Digital Europe) μέσω της MetaMind Innovations P.C.",
           projects: projectsFor("el", "Σε εξέλιξη"),
           publicationsIntro: "Πλήρης λίστα διαθέσιμη στο Google Scholar.",
           publications: sortedPublications,
@@ -534,10 +556,30 @@
       function renderProjects(data) {
         const container = document.getElementById("projects-content");
         clear(container);
-        data.projects.forEach(([title, date, body]) => {
+        data.projects.forEach(([title, date, body, programme, url]) => {
           const article = document.createElement("article");
           article.className = "project-card";
-          article.innerHTML = `<p class="meta">${date}</p><h3>${title}</h3><p>${body}</p>`;
+
+          const meta = document.createElement("p");
+          meta.className = "meta";
+          meta.textContent = programme ? `${date} · ${programme}` : date;
+
+          const heading = document.createElement("h3");
+          if (url) {
+            const a = document.createElement("a");
+            a.href = url;
+            a.target = "_blank";
+            a.rel = "noopener";
+            a.textContent = title;
+            heading.append(a);
+          } else {
+            heading.textContent = title;
+          }
+
+          const description = document.createElement("p");
+          description.textContent = body;
+
+          article.append(meta, heading, description);
           container.appendChild(article);
         });
       }

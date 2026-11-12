@@ -639,3 +639,13 @@ dd {
 .publication-list li a:hover {
   color: var(--accent-dark);
 }
+
+.project-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

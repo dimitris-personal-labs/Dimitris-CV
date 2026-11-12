@@ -153,6 +153,22 @@
       };
 
 
+      function formatPublication(pub) {
+        const parts = [pub.authors, `“${pub.title}”`, pub.venue];
+        if (pub.pages) parts.push(pub.pages);
+        parts.push(pub.month ? `${pub.month} ${pub.year}` : String(pub.year));
+        if (pub.doi) parts.push(`doi: ${pub.doi}`);
+        return `${parts.join(", ")}.`;
+      }
+
+      function projectsFor(lang, ongoingLabel) {
+        return window.CV_PROJECTS.map((project) => [
+          project.name,
+          `${project.start} - ${project.end || ongoingLabel}`,
+          project.description[lang]
+        ]);
+      }
+
       const content = {
         en: {
           pageTitle: "Dimitrios Christos Asimopoulos | AI Engineer",
@@ -248,9 +264,9 @@
             ["Productivity", ["MS Office", "Google Workspace", "LaTeX", "Overleaf", "Atlassian Jira", "Confluence"]]
           ],
           projectsIntro: "Horizon 2020 and Horizon Europe research projects through MetaMind Innovations P.C.",
-          projects: window.CV_PROJECTS.map((project) => [project.name, project.dates, project.description.en]),
+          projects: projectsFor("en", "Ongoing"),
           publicationsIntro: "Full list available on Google Scholar.",
-          publications: window.CV_PUBLICATIONS,
+          publications: window.CV_PUBLICATIONS.map(formatPublication),
           contactText: "Available for research collaborations, AI engineering opportunities and technical discussions around cybersecurity, adversarial machine learning and critical infrastructure protection.",
           contactLinks: [
             ["Email", "dasimopoulos@metamind.gr", links.email],
@@ -354,9 +370,9 @@
             ["Παραγωγικότητα", ["MS Office", "Google Workspace", "LaTeX", "Overleaf", "Atlassian Jira", "Confluence"]]
           ],
           projectsIntro: "Ευρωπαϊκά ερευνητικά έργα Horizon 2020 και Horizon Europe μέσω της MetaMind Innovations P.C.",
-          projects: window.CV_PROJECTS.map((project) => [project.name, project.dates, project.description.el]),
+          projects: projectsFor("el", "Σε εξέλιξη"),
           publicationsIntro: "Πλήρης λίστα διαθέσιμη στο Google Scholar.",
-          publications: window.CV_PUBLICATIONS,
+          publications: window.CV_PUBLICATIONS.map(formatPublication),
           contactText: "Διαθέσιμος για ερευνητικές συνεργασίες, ευκαιρίες AI engineering και τεχνικές συζητήσεις γύρω από κυβερνοασφάλεια, ανταγωνιστική μηχανική μάθηση και προστασία κρίσιμων υποδομών.",
           contactLinks: [
             ["Email", "dasimopoulos@metamind.gr", links.email],

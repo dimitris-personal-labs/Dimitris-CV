@@ -14,13 +14,25 @@ Static bilingual portfolio / CV website for GitHub Pages.
 
 ## Adding a paper
 
-Open `data/publications.js` and add a new line at the top of the list:
+Open `data/publications.js` and add a new block at the top of the list:
 
 ```js
-  "A. Author, D. C. Asimopoulos, “Paper title”, Venue name, pp. 1-6, Month Year.",
+  {
+    authors: "A. Author, D. C. Asimopoulos, B. Author",
+    title: "Paper title",
+    venue: "Conference or journal name",
+    pages: "pp. 1-6",
+    month: "June",
+    year: 2026,
+    type: "conference",
+    doi: "10.xxxx/xxxxx"
+  },
 ```
 
-Keep the quotes around the text and the comma at the end of the line.
+`pages`, `month` and `doi` are optional; delete those lines if you don't have
+them. `type` is `"journal"`, `"conference"` or `"preprint"`. Keep the quotes,
+the commas between fields and the comma after the closing `}`. The site
+builds the citation text from these fields.
 
 ## Adding a project
 
@@ -29,13 +41,17 @@ Open `data/projects.js` and add a new block at the end of the list:
 ```js
   {
     name: "PROJECT",
-    dates: "MM/YYYY - MM/YYYY",
+    start: "MM/YYYY",
+    end: "MM/YYYY",
     description: {
       en: "Short description in English.",
       el: "Σύντομη περιγραφή στα ελληνικά."
     }
   },
 ```
+
+For a project that is still running, use `end: ""` and the site shows
+"Ongoing" / "Σε εξέλιξη".
 
 After either change, open `index.html` in a browser to check it, then commit and
 push. GitHub Pages republishes the site automatically.

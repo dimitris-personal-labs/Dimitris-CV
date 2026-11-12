@@ -153,12 +153,31 @@
       };
 
 
-      function formatPublication(pub) {
-        const parts = [pub.authors, `“${pub.title}”`, pub.venue];
+      const MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+        "August", "September", "October", "November", "December"];
+
+      // Your name as it appears in author lists; matches are shown in bold.
+      const OWN_NAME = /D\. (?:C\. )?Asimopoulos/g;
+
+      // Newest first: by year, then by month (entries without a month go last within their year).
+      const sortedPublications = [...window.CV_PUBLICATIONS].sort((a, b) =>
+        b.year - a.year || MONTHS.indexOf(b.month) - MONTHS.indexOf(a.month)
+      );
+
+      const peerReviewedCount = window.CV_PUBLICATIONS.filter((pub) => pub.type !== "preprint").length;
+      const projectCount = window.CV_PROJECTS.length;
+
+      function publicationDetails(pub) {
+        const parts = [pub.venue];
         if (pub.pages) parts.push(pub.pages);
         parts.push(pub.month ? `${pub.month} ${pub.year}` : String(pub.year));
         if (pub.doi) parts.push(`doi: ${pub.doi}`);
-        return `${parts.join(", ")}.`;
+        return parts.join(", ");
+      }
+
+      function publicationLink(pub) {
+        if (pub.doi) return `https://doi.org/${pub.doi}`;
+        return pub.url || "";
       }
 
       function projectsFor(lang, ongoingLabel) {
@@ -189,8 +208,8 @@
           cvHref: links.cvEn,
           impacts: [
             ["2022", "R&D since"],
-            ["12", "EU research projects"],
-            ["11", "peer-reviewed publications"]
+            [String(projectCount), "EU research projects"],
+            [String(peerReviewedCount), "peer-reviewed publications"]
           ],
           profileLabel: "Profile",
           profileTitle: "Professional summary",
@@ -266,7 +285,7 @@
           projectsIntro: "Horizon 2020 and Horizon Europe research projects through MetaMind Innovations P.C.",
           projects: projectsFor("en", "Ongoing"),
           publicationsIntro: "Full list available on Google Scholar.",
-          publications: window.CV_PUBLICATIONS.map(formatPublication),
+          publications: sortedPublications,
           contactText: "Available for research collaborations, AI engineering opportunities and technical discussions around cybersecurity, adversarial machine learning and critical infrastructure protection.",
           contactLinks: [
             ["Email", "dasimopoulos@metamind.gr", links.email],
@@ -295,8 +314,8 @@
           cvHref: links.cvEl,
           impacts: [
             ["2022", "Έρευνα και ανάπτυξη από"],
-            ["12", "ευρωπαϊκά ερευνητικά έργα"],
-            ["11", "δημοσιεύσεις με κρίση"]
+            [String(projectCount), "ευρωπαϊκά ερευνητικά έργα"],
+            [String(peerReviewedCount), "δημοσιεύσεις με κρίση"]
           ],
           profileLabel: "Προφίλ",
           profileTitle: "Επαγγελματική περίληψη",
@@ -372,7 +391,7 @@
           projectsIntro: "Ευρωπαϊκά ερευνητικά έργα Horizon 2020 και Horizon Europe μέσω της MetaMind Innovations P.C.",
           projects: projectsFor("el", "Σε εξέλιξη"),
           publicationsIntro: "Πλήρης λίστα διαθέσιμη στο Google Scholar.",
-          publications: window.CV_PUBLICATIONS.map(formatPublication),
+          publications: sortedPublications,
           contactText: "Διαθέσιμος για ερευνητικές συνεργασίες, ευκαιρίες AI engineering και τεχνικές συζητήσεις γύρω από κυβερνοασφάλεια, ανταγωνιστική μηχανική μάθηση και προστασία κρίσιμων υποδομών.",
           contactLinks: [
             ["Email", "dasimopoulos@metamind.gr", links.email],
@@ -526,9 +545,34 @@
       function renderPublications(data) {
         const container = document.getElementById("publications-content");
         clear(container);
-        data.publications.forEach((publication) => {
+        data.publications.forEach((pub) => {
           const li = document.createElement("li");
-          li.textContent = publication;
+
+          // Authors, with your own name in bold.
+          let last = 0;
+          for (const match of pub.authors.matchAll(OWN_NAME)) {
+            li.append(pub.authors.slice(last, match.index));
+            const strong = document.createElement("strong");
+            strong.textContent = match[0];
+            li.append(strong);
+            last = match.index + match[0].length;
+          }
+          li.append(pub.authors.slice(last), ", “");
+
+          // Title, linked to the DOI (or url) when there is one.
+          const href = publicationLink(pub);
+          if (href) {
+            const a = document.createElement("a");
+            a.href = href;
+            a.target = "_blank";
+            a.rel = "noopener";
+            a.textContent = pub.title;
+            li.append(a);
+          } else {
+            li.append(pub.title);
+          }
+
+          li.append(`”, ${publicationDetails(pub)}.`);
           container.appendChild(li);
         });
       }

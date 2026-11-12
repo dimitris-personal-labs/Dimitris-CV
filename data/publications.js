@@ -1,5 +1,5 @@
-// Publications shown on the website, newest first.
-// To add a paper: copy one block, paste it at the top of the list and edit it.
+// Publications shown on the website.
+// To add a paper: copy one block, paste it anywhere in the list and edit it.
 //
 // Fields:
 //   authors  - author list as one piece of text
@@ -10,6 +10,10 @@
 //   year     - number, e.g. 2025
 //   type     - "journal", "conference" or "preprint"
 //   doi      - optional, e.g. "10.1109/PACET60398.2024.10497084"
+//   url      - optional link, used when there is no doi (e.g. an arXiv page)
+//
+// The order here doesn't matter: the site sorts papers by year and month.
+// Preprints (type "preprint") are not counted as peer-reviewed.
 window.CV_PUBLICATIONS = [
   {
     authors: "D. C. Asimopoulos, P. Radoglou-Grammatikis, G. Th. Papadopoulos, P. Sarigiannidis",
@@ -68,7 +72,8 @@ window.CV_PUBLICATIONS = [
     venue: "arXiv preprint arXiv:2405.06709",
     month: "May",
     year: 2024,
-    type: "preprint"
+    type: "preprint",
+    url: "https://arxiv.org/abs/2405.06709"
   },
   {
     authors: "D. C. Asimopoulos, P. Radoglou-Grammatikis, I. Makris, V. Mladenov, K. E. Psannis, S. Goudos, P. Sarigiannidis",

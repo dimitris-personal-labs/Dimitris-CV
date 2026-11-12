@@ -14,7 +14,8 @@ Static bilingual portfolio / CV website for GitHub Pages.
 
 ## Adding a paper
 
-Open `data/publications.js` and add a new block at the top of the list:
+Open `data/publications.js` and add a new block anywhere in the list (the site
+sorts papers by year and month automatically):
 
 ```js
   {
@@ -30,7 +31,10 @@ Open `data/publications.js` and add a new block at the top of the list:
 ```
 
 `pages`, `month` and `doi` are optional; delete those lines if you don't have
-them. `type` is `"journal"`, `"conference"` or `"preprint"`. Keep the quotes,
+them. With a `doi`, the title links to the paper; without one you can add
+`url: "https://..."` instead (e.g. an arXiv page). `type` is `"journal"`,
+`"conference"` or `"preprint"`; preprints are not counted as peer-reviewed.
+Your name is shown in bold automatically. Keep the quotes,
 the commas between fields and the comma after the closing `}`. The site
 builds the citation text from these fields.
 
@@ -56,8 +60,8 @@ For a project that is still running, use `end: ""` and the site shows
 After either change, open `index.html` in a browser to check it, then commit and
 push. GitHub Pages republishes the site automatically.
 
-Note: the headline numbers at the top of the page ("12 EU research projects",
-"11 peer-reviewed publications") are still typed by hand in `index.html`.
+The headline numbers at the top of the page (EU research projects and
+peer-reviewed publications) are counted automatically from these two files.
 
 ## Preview locally
 

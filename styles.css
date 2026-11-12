@@ -623,3 +623,19 @@ dd {
     width: 100%;
   }
 }
+
+.publication-list li strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.publication-list li a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.publication-list li a:hover {
+  color: var(--accent-dark);
+}
